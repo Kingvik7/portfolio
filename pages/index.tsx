@@ -5,7 +5,8 @@ import NameTitle from './NameTitle'
 import { motion } from "framer-motion"
 import NameAnim from "./NameAnim"
 import ScrollInformer from './ScrollInformer'
-import Example from './Example'
+// import Example from './Example'
+import FAQGrid from "https://framer.com/m/FAQ-Grid-uvJp.js@rbQiKXASeSNS2d01495V"
 
 export default function Home(): JSX.Element {
   return (
@@ -20,12 +21,13 @@ export default function Home(): JSX.Element {
           <header className="heading">
              <NameAnim/>
              <NameTitle name="Currently Pursuing my Masters in Human-Computer Interaction"/>
-             <h1 className="text-3xl font-italic text-red-900 underline">
-                Hello world!
-            </h1>
           </header>
           <ScrollInformer/>
         </div>
+        <FAQGrid
+           // Using default values:
+            variant="Desktop"
+        />
       </main>
 
       <footer className={styles.footer}>
