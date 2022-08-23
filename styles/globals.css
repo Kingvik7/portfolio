@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "Biko";
+  src: url("../fonts/Biko_Regular.otf");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Biko';
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* .scroll { 
+  // background-color: #575757;
+  color: #909090;
+  position: absolute;
+  right: 2.5rem;
+  bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 6;
+
+  &__line {
+      background-color: #909090;
+      width: 2px;
+      border-radius: 5px;
+      height: 60px;
+      margin-bottom: 16px;
+  }
+
+  &__text {
+      padding: 2px;
+      font-size: 10px;
+      font-family: 'Goudy Bookletter 1911';
+      font-style: italic;
+      transform: rotate(90deg);
+      line-height: 0.8em;
+      margin: 0.1em 0;
+  }
+} */
+
+.heading{
+  color: #575757;
+  width: 50vw;
+  object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px 0px;
+}
+
+.desc{
+  font-size:20px;
+  text-align: center;
+}
+
+.squiggle {
+  stroke-dasharray: 30450;
+  stroke-dashoffset: 30450;
+} 
+
+.hello {
+  stroke-dasharray: 30450;
+  stroke-dashoffset: 30450;
+} 
+
+.div{
+  background-color: red;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: light;
+  }
+  body {
+    color: white;
+    background: rgb(255, 255, 255);
+  }
+}
