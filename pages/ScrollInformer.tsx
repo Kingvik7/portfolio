@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import gsap from "gsap";
+import React, { useEffect } from "react"
+import gsap from "gsap"
 
 const ScrollInformer: React.FC = () => {
     useEffect(() => {
@@ -15,7 +15,7 @@ const ScrollInformer: React.FC = () => {
                     height: "60px",
                     duration: 1.4,
                     ease: "power1.inOut",
-                },
+                }
             )
             .to(".scroll__text", {
                 delay: -0.5,
@@ -41,8 +41,8 @@ const ScrollInformer: React.FC = () => {
                     ease: "power2.inOut",
                 },
             })
-            .to(".scroll__line", { height: "0px", duration: 0.6 });
-    }, []);
+            .to(".scroll__line", { height: "0px", duration: 0.6 })
+    }, [])
 
     return (
         <div className="scroll absolute text-xs xl:text-sm">
@@ -54,7 +54,7 @@ const ScrollInformer: React.FC = () => {
             <div className="scroll__text text-gray-600">L</div>
             <div className="scroll__text text-gray-600">L</div>
         </div>
-    );
-};
+    )
+}
 
-export default ScrollInformer;
+export default ScrollInformer

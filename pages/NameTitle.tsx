@@ -1,8 +1,7 @@
-import React from 'react';
+import React from "react"
 
 function NameTitle(props) {
-    return <a className="desc">{props.name}</a>;
-  }
+    return <a className="desc">{props.name}</a>
+}
 
-
-export default NameTitle;
+export default NameTitle
