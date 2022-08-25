@@ -7,6 +7,10 @@
     src: url("../fonts/Biko_Regular.otf");
 }
 
+.navbar{
+    position: fixed;
+}
+
 html,
 body {
     padding: 0;
@@ -55,13 +59,6 @@ a {
 
 .heading {
     color: #575757;
-    width: 50vw;
-    object-fit: contain;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px 0px;
 }
 
 .desc {

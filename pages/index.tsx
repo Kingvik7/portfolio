@@ -5,7 +5,7 @@ import NameTitle from "./NameTitle"
 import { motion } from "framer-motion"
 import NameAnim from "./NameAnim"
 import ScrollInformer from "./ScrollInformer"
-import Example from './Example'
+import NavBar from './NavBar'
 import FAQGrid from "https://framer.com/m/FAQ-Grid-uvJp.js@rbQiKXASeSNS2d01495V"
 import { XMarkIcon } from "@heroicons/react/24/outline"
 
@@ -20,10 +20,10 @@ export default function Home(): JSX.Element {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Example/>
+            <NavBar/>
             <main className={styles.main}>
                 <div className="App">
-                    <header className="heading mt-64">
+                    <header className="container heading flex flex-col px-2">
                         <NameAnim />
                         <NameTitle name="Currently Pursuing my Masters in Human-Computer Interaction" />
                     </header>
@@ -31,7 +31,7 @@ export default function Home(): JSX.Element {
                 </div>
             </main>
 
-            <footer className={styles.footer}>
+            <footer id="footer" className={styles.footer}>
                 <a
                     href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
                     target="_blank"
