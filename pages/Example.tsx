@@ -47,7 +47,7 @@ export default function Example() {
                     <div className="flex-shrink-0">
                       <img
                         className="h-8 w-8"
-                        src="./images/"
+                        src="../images/fav.png"
                         alt="Workflow"
                       />
                     </div>
