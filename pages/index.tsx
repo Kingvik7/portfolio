@@ -5,7 +5,7 @@ import NameTitle from "./NameTitle"
 import { motion } from "framer-motion"
 import NameAnim from "./NameAnim"
 import ScrollInformer from "./ScrollInformer"
-// import Example from './Example'
+import Example from './Example'
 import FAQGrid from "https://framer.com/m/FAQ-Grid-uvJp.js@rbQiKXASeSNS2d01495V"
 import { XMarkIcon } from "@heroicons/react/24/outline"
 
@@ -20,19 +20,15 @@ export default function Home(): JSX.Element {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <Example/>
             <main className={styles.main}>
                 <div className="App">
                     <header className="heading mt-64">
                         <NameAnim />
-                        <XMarkIcon className="transform -translate-y-2/3 text-red-600 animate-pulse" />
                         <NameTitle name="Currently Pursuing my Masters in Human-Computer Interaction" />
                     </header>
                     <ScrollInformer />
                 </div>
-                <FAQGrid
-                    // Using default values:
-                    variant="Desktop"
-                />
             </main>
 
             <footer className={styles.footer}>

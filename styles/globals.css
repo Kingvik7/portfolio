@@ -23,8 +23,7 @@ a {
     box-sizing: border-box;
 }
 
-/* .scroll { 
-  // background-color: #575757;
+.scroll { 
   color: #909090;
   position: absolute;
   right: 2.5rem;
@@ -33,8 +32,9 @@ a {
   flex-direction: column;
   align-items: center;
   z-index: 6;
+}
 
-  &__line {
+  .scroll__line {
       background-color: #909090;
       width: 2px;
       border-radius: 5px;
@@ -42,7 +42,7 @@ a {
       margin-bottom: 16px;
   }
 
-  &__text {
+  .scroll__text {
       padding: 2px;
       font-size: 10px;
       font-family: 'Goudy Bookletter 1911';
@@ -51,7 +51,7 @@ a {
       line-height: 0.8em;
       margin: 0.1em 0;
   }
-} */
+
 
 .heading {
     color: #575757;
