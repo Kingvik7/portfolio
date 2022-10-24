@@ -118,6 +118,7 @@ export default function Home(): JSX.Element {
             y: '10px',
             ease: "power1.inOut",
         })
+
     }, [])
     return (
         <div className={styles.container}>
@@ -147,7 +148,7 @@ export default function Home(): JSX.Element {
                 <div key={callout.name} className="">
                   <h3 className="text-base font-semibold text-gray-900">
                     <a >
-                      <span className="absolute inset-0" />
+                      {/* <span className="absolute inset-0" /> */}
                       {callout.name}
                     </a>
                   </h3>
@@ -163,7 +164,7 @@ export default function Home(): JSX.Element {
                 <div key={callout.name} className="">
                   <h3 className="text-base font-semibold text-gray-900">
                     <a >
-                      <span className="absolute inset-0" />
+                      {/* <span className="absolute inset-0" /> */}
                       {callout.name}
                     </a>
                   </h3>
@@ -179,7 +180,7 @@ export default function Home(): JSX.Element {
                 <div key={callout.name} className="">
                   <h3 className="text-base font-semibold text-gray-900">
                     <a >
-                      <span className="absolute inset-0" />
+                      {/* <span className="absolute inset-0" /> */}
                       {callout.name}
                     </a>
                   </h3>
@@ -195,7 +196,7 @@ export default function Home(): JSX.Element {
                 <div key={callout.name} className="">
                   <h3 className="text-base font-semibold text-gray-900">
                     <a >
-                      <span className="absolute inset-0" />
+                      {/* <span className="absolute inset-0" /> */}
                       {callout.name}
                     </a>
                   </h3>
@@ -211,7 +212,7 @@ export default function Home(): JSX.Element {
                 <div key={callout.name} className="">
                   <h3 className="text-base font-semibold text-gray-900">
                     <a >
-                      <span className="absolute inset-0" />
+                      {/* <span className="absolute inset-0" /> */}
                       {callout.name}
                     </a>
                   </h3>
@@ -231,7 +232,7 @@ export default function Home(): JSX.Element {
                 <div key={callout.name} className="">
                   <h3 className="text-base font-semibold text-gray-900">
                     <a >
-                      <span className="absolute inset-0" />
+                      {/* <span className="absolute inset-0" /> */}
                       {callout.name}
                     </a>
                   </h3>
