@@ -20,7 +20,7 @@ const NameAnim: React.FC = () => {
     }, [])
 
     return (
-        <svg
+        <svg className="mx-4"
             viewBox="0 0 927 212"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

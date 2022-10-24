@@ -5,6 +5,9 @@ const nextConfig = {
 }
 
 module.exports = {
+    images: {
+        domains: ['assets.example.com'],
+      },
     nextConfig,
     experimental: {
         urlImports: [

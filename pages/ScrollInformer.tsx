@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import gsap from "gsap"
 
 const ScrollInformer: React.FC = () => {
+
     useEffect(() => {
         gsap.timeline({ repeat: -1 })
             .fromTo(

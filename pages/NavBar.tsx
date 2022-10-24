@@ -1,36 +1,37 @@
-import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, InboxStackIcon, MinusIcon, RectangleStackIcon, XMarkIcon } from "@heroicons/react/24/outline"
+import Image from "next/image";
+import logo from '../images/fav.png'
+import React, { useEffect } from "react"
 
 const navigation = [
-  { name: 'Home', href: '#footer', current: true },
-  { name: 'Featured', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
+  { name: 'Home', href: '#', current: true },
+  { name: 'Projects', href: '#projects', current: false },
   { name: 'About me', href: '#', current: false },
 ]
 
 function classNames(...classes) {
+
   return classes.filter(Boolean).join(' ')
 }
+
+
 
 export default function NavBar() {
   return (
     <>
-      <div className="mx-4 font-['Inter'] max-w-5xl xl:mx-auto inset-x-0 fixed md:mx-12 mt-6 z-10">
-        <Disclosure as="nav" className="bg-white drop-shadow-[0_5px_10px_rgba(0,0,0,0.05)] border rounded-lg">
+      <div id="nav" className="mx-2 font-['Sentient'] max-w-5xl xl:mx-auto inset-x-0 fixed md:mx-12 mt-6 z-10 backdrop-blur-md bg-white/70 rounded-lg">
+        <Disclosure as="nav" className=" drop-shadow-[0_10px_10px_rgba(0,0,0,0.02)]  border rounded-lg">
           {({ open }) => (
             <>
               <div className="max-w-5xl px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                   <div className="flex items-center">
-                    <div className="flex-shrink-0">
-                      {/* <img
-                        className="h-8 w-8"
-                        src= {require("../images/lol.png")}
-                        alt="Workflow"
-                      /> */}
-                      <h2 className='text-gray-900 font-semibold'>VG</h2>
-                    </div>
+                    <a href="../" className="flex-shrink-0 w-8 h-8 ">
+                    <Image
+      src={logo}
+    />
+                    </a>
                   </div>
                   <div className="hidden items-baseline md:block">
                       <div className="ml-10 flex items-baseline space-x-5">
@@ -40,7 +41,7 @@ export default function NavBar() {
                             href={item.href}
                             className={classNames(
                               item.current
-                                ? ' text-gray-900 font-medium'
+                                ? ' text-gray-900 font-semibold'
                                 : 'text-gray-400  hover:text-gray-500',
                               'px-3 py-2 rounded-md text-sm font-normal'
                             )}

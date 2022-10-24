@@ -6,10 +6,22 @@ import { motion } from "framer-motion"
 import NameAnim from "./NameAnim"
 import ScrollInformer from "./ScrollInformer"
 import NavBar from './NavBar'
+import Projects from './projects'
+import Footer from './footer'
 import FAQGrid from "https://framer.com/m/FAQ-Grid-uvJp.js@rbQiKXASeSNS2d01495V"
 import { XMarkIcon } from "@heroicons/react/24/outline"
+import { useEffect } from "react"
+import gsap from "gsap"
 
 export default function Home(): JSX.Element {
+    useEffect(() => {
+        gsap.timeline({ delay: 2.5 })
+        .fromTo("#nav",{opacity:0}, {
+            opacity:1,
+            ease: "power1.inOut",
+        })
+    }, [])
+
     return (
         <div className={styles.container}>
             <Head>
@@ -23,31 +35,16 @@ export default function Home(): JSX.Element {
             <NavBar/>
             <main className={styles.main}>
                 <div className="App">
-                    <header className="container heading flex flex-col px-2">
+                    <header className="container justify-center heading flex flex-col px-2">
                         <NameAnim />
-                        <NameTitle name="Currently Pursuing my Masters in Human-Computer Interaction" />
+                        <NameTitle first="Product Designer, " second="" third=" Developer. " fourth="Pursuing Human-Computer Interaction at City, University of London" />
                     </header>
                     <ScrollInformer />
                 </div>
             </main>
+            <Projects/>
 
-            <footer id="footer" className={styles.footer}>
-                <a
-                    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Powered by{" "}
-                    <span className={styles.logo}>
-                        <Image
-                            src="/vercel.svg"
-                            alt="Vercel Logo"
-                            width={72}
-                            height={16}
-                        />
-                    </span>
-                </a>
-            </footer>
+          <Footer/>
         </div>
     )
 }
