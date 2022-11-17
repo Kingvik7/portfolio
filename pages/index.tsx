@@ -5,9 +5,9 @@ import NameTitle from "./NameTitle"
 import { motion } from "framer-motion"
 import NameAnim from "./NameAnim"
 import ScrollInformer from "./ScrollInformer"
-import NavBar from './NavBar'
-import Projects from './projects'
-import Footer from './footer'
+import NavBar from "./NavBar"
+import Projects from "./projects"
+import Footer from "./footer"
 import FAQGrid from "https://framer.com/m/FAQ-Grid-uvJp.js@rbQiKXASeSNS2d01495V"
 import { XMarkIcon } from "@heroicons/react/24/outline"
 import { useEffect } from "react"
@@ -15,11 +15,14 @@ import gsap from "gsap"
 
 export default function Home(): JSX.Element {
     useEffect(() => {
-        gsap.timeline({ delay: 2.5 })
-        .fromTo("#nav",{opacity:0}, {
-            opacity:1,
-            ease: "power1.inOut",
-        })
+        gsap.timeline({ delay: 2.5 }).fromTo(
+            "#nav",
+            { opacity: 0 },
+            {
+                opacity: 1,
+                ease: "power1.inOut",
+            }
+        )
     }, [])
 
     return (
@@ -32,19 +35,24 @@ export default function Home(): JSX.Element {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <NavBar/>
+            <NavBar />
             <main className={styles.main}>
                 <div className="App">
                     <header className="container justify-center heading flex flex-col px-2">
                         <NameAnim />
-                        <NameTitle first="Product Designer, " second="" third=" Developer. " fourth="Pursuing Human-Computer Interaction at City, University of London" />
+                        <NameTitle
+                            first="Product Designer, "
+                            second=""
+                            third=" Developer. "
+                            fourth="Pursuing Human-Computer Interaction at City, University of London"
+                        />
                     </header>
                     <ScrollInformer />
                 </div>
             </main>
-            <Projects/>
+            <Projects id="projects" />
 
-          <Footer/>
+            <Footer />
         </div>
     )
 }

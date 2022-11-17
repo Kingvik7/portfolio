@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
 @font-face {
     font-family: "Sentient";
     src: url("../fonts/Sentient-Medium.otf");
@@ -22,12 +25,11 @@
     src: url("../fonts/script.ttf");
 }
 
-.tag{
-    font-family: 'script';
+.tag {
+    font-family: "script";
 }
 
-
-.navbar{
+.navbar {
     position: fixed;
 }
 
@@ -35,7 +37,7 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Sentient';
+    font-family: "Sentient";
     font-style: bold;
 }
 
@@ -48,34 +50,34 @@ a {
     box-sizing: border-box;
 }
 
-.scroll { 
-  color: #909090;
-  position: absolute;
-  right: 2.5rem;
-  bottom: 5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 6;
+.scroll {
+    color: #909090;
+    position: absolute;
+    right: 2.5rem;
+    bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 6;
 }
 
-  .scroll__line {
-      background-color: #909090;
-      width: 2px;
-      border-radius: 5px;
-      height: 60px;
-      margin-bottom: 16px;
-  }
+.scroll__line {
+    background-color: #909090;
+    width: 2px;
+    border-radius: 5px;
+    height: 60px;
+    margin-bottom: 16px;
+}
 
-  .scroll__text {
-      padding: 2px;
-      font-size: 10px;
-      font-family: 'Goudy Bookletter 1911';
-      font-style: italic;
-      transform: rotate(90deg);
-      line-height: 0.8em;
-      margin: 0.1em 0;
-  }
+.scroll__text {
+    padding: 2px;
+    font-size: 10px;
+    font-family: "Goudy Bookletter 1911";
+    font-style: italic;
+    transform: rotate(90deg);
+    line-height: 0.8em;
+    margin: 0.1em 0;
+}
 
 .desc {
     opacity: 0;
@@ -103,7 +105,7 @@ a {
 
 .gradient {
     background-image: linear-gradient(200deg, #1ebcff, #aeddff);
-    background-clip:text;
+    background-clip: text;
     color: transparent;
 }
 
