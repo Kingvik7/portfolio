@@ -50,7 +50,7 @@ export default function Home(): JSX.Element {
                     <ScrollInformer />
                 </div>
             </main>
-            <Projects id="projects" />
+            <Projects />
 
             <Footer />
         </div>

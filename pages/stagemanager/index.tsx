@@ -124,21 +124,23 @@ const callouts6 = [
 
 export default function Home(): JSX.Element {
     useEffect(() => {
-        gsap.timeline({}).fromTo(
-            "#header",
-            { opacity: 0 },
-            {
-                opacity: 1,
-                y: "10px",
-                ease: "power1.inOut",
-            }
-        )
+        gsap.registerPlugin(ScrollTrigger)
+        // gsap.timeline({}).fromTo(
+        //     "#header",
+        //     { opacity: 0 },
+        //     {
+        //         opacity: 1,
+        //         y: "10px",
+        //         ease: "power1.inOut",
+        //     }
+        // )
         gsap.to("#header", {
-            scale: "0.5",
+            scale: "0.2",
+            // height: "50px",
             ease: "none",
-            ScrollTrigger: {
-                trigger: ".hscroll",
-                start: "top center",
+            scrollTrigger: {
+                trigger: "#header",
+                start: "top top",
                 end: "bottom top",
                 scrub: true,
             },
@@ -168,7 +170,6 @@ export default function Home(): JSX.Element {
                     </div>
                 </main>
             </div>
-            <ScrollInformer />
             <Details />
             <div className="mx-4 my-5 max-w-5xl xl:mx-auto inset-x-0 md:mx-12 lg:mx-24 px-2">
                 <Title text="How Stage Manager Works on macOS Ventura" />

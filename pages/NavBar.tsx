@@ -10,6 +10,18 @@ import {
 import Image from "next/image"
 import logo from "../images/fav.png"
 import React, { useEffect } from "react"
+import ScrollToPlugin from "gsap/dist/ScrollToPlugin"
+import gsap from "gsap"
+gsap.registerPlugin(ScrollToPlugin)
+
+const scrollToId = (id: string, duration = 1) => {
+    gsap.to(window, {
+        delay: 0.2,
+        duration: 0.3,
+        scrollTo: { y: `#${id}`, offsetY: 140 },
+        ease: "power3.in",
+    })
+}
 
 const navigation = [
     { name: "Home", href: "../", id: "home", current: true },
@@ -50,6 +62,17 @@ export default function NavBar() {
                                                 <a
                                                     key={item.name}
                                                     href={item.href}
+                                                    onClick={(e) => {
+                                                        e.preventDefault()
+                                                        if (
+                                                            item.href ==
+                                                            "#projects"
+                                                        ) {
+                                                            scrollToId(
+                                                                "projects"
+                                                            )
+                                                        }
+                                                    }}
                                                     className={classNames(
                                                         item.current
                                                             ? " text-gray-900 font-semibold"
@@ -93,8 +116,8 @@ export default function NavBar() {
                                     {navigation.map((item) => (
                                         <Disclosure.Button
                                             key={item.name}
-                                            as="a"
-                                            href={item.href}
+                                            // as="a"
+                                            // href={item.href}
                                             className={classNames(
                                                 item.current
                                                     ? "bg-gray-900 text-white"
@@ -106,6 +129,11 @@ export default function NavBar() {
                                                     ? "page"
                                                     : undefined
                                             }
+                                            onClick={(e) => {
+                                                if (item.href == "#projects") {
+                                                    scrollToId("projects")
+                                                }
+                                            }}
                                         >
                                             {item.name}
                                         </Disclosure.Button>
