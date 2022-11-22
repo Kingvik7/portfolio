@@ -44,7 +44,7 @@ export default function Home(): JSX.Element {
                             first="Product Designer, "
                             second=""
                             third=" Developer. "
-                            fourth="Pursuing Human-Computer Interaction at City, University of London"
+                            fourth="Pursuing MSc in Human-Computer Interaction at City, University of London"
                         />
                     </header>
                     <ScrollInformer />

@@ -51,7 +51,7 @@ const callouts2 = [
     {
         name: "Screen Real estate",
         description:
-            "The windows of open apps take up a lot of screen real space on the left-hand side of the screen. These windows can be moved elsewhere which integrates with existing window management features.",
+            "The windows of open apps take up a lot of screen real estate on the left-hand side of the screen. These windows can be moved elsewhere which integrates with existing window management features.",
     },
     {
         name: "Discoveribility",

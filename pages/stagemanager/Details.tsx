@@ -79,12 +79,9 @@ export default function Details() {
                             Links
                         </h3>
                         <form className="">
-                            <button
-                                type="submit"
-                                className="mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-pink-600 py-3 px-8 text-base font-medium text-white hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            >
+                            <a className="mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-pink-600 py-3 px-8 text-center font-medium text-white hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                                 Download Report
-                            </button>
+                            </a>
                         </form>
                     </div>
                     <div className="py-0 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-0 lg:pb-0 lg:pr-8">

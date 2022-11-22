@@ -120,8 +120,8 @@ a {
     stroke-dashoffset: 30450;
 }
 
-.div {
-    background-color: red;
+.innerShadow {
+    box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.075);
 }
 
 .linkedin {
@@ -129,8 +129,18 @@ a {
     transition: 0.2s ease;
 }
 
+.instagram {
+    fill: rgb(144, 144, 144);
+    transition: 0.2s ease;
+}
+
 .linkedin:hover {
     fill: #0072b1;
+    transition: 0.2s ease;
+}
+
+.instagram:hover {
+    fill: #bc2a8d;
     transition: 0.2s ease;
 }
 

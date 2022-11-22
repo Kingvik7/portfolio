@@ -73,6 +73,7 @@ export default function NavBar() {
                                                             scrollToId(
                                                                 "projects"
                                                             )
+                                                            item.current = true
                                                         }
                                                     }}
                                                     className={classNames(
