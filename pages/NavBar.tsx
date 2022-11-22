@@ -12,6 +12,8 @@ import logo from "../images/fav.png"
 import React, { useEffect } from "react"
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin"
 import gsap from "gsap"
+import { inferInitialRouteFromPath } from "framer/build/router"
+import { createPublicKey } from "crypto"
 gsap.registerPlugin(ScrollToPlugin)
 
 const scrollToId = (id: string, duration = 1) => {
@@ -19,7 +21,7 @@ const scrollToId = (id: string, duration = 1) => {
         delay: 0.2,
         duration: 0.3,
         scrollTo: { y: `#${id}`, offsetY: 140 },
-        ease: "power3.in",
+        ease: "power1.inOut",
     })
 }
 
@@ -124,11 +126,7 @@ export default function NavBar() {
                                                     : "text-gray-300 hover:bg-gray-700 hover:text-white",
                                                 "block px-3 py-2 rounded-md text-base font-normal"
                                             )}
-                                            aria-current={
-                                                item.current
-                                                    ? "page"
-                                                    : undefined
-                                            }
+                                            aria-current={item.current}
                                             onClick={(e) => {
                                                 if (item.href == "#projects") {
                                                     scrollToId("projects")

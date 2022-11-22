@@ -124,6 +124,16 @@ a {
     background-color: red;
 }
 
+.linkedin {
+    fill: rgb(144, 144, 144);
+    transition: 0.2s ease;
+}
+
+.linkedin:hover {
+    fill: #0072b1;
+    transition: 0.2s ease;
+}
+
 @media (prefers-color-scheme: dark) {
     html {
         color-scheme: light;
