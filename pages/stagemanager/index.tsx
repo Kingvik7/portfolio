@@ -137,7 +137,6 @@ export default function Home(): JSX.Element {
         gsap.to("#header", {
             scale: "0.4",
             height: "400px",
-            // ease: "power1.inOut",
             scrollTrigger: {
                 trigger: "#header",
                 start: "top top",

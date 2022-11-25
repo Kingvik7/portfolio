@@ -14,28 +14,36 @@ import ScrollToPlugin from "gsap/dist/ScrollToPlugin"
 import gsap from "gsap"
 import { inferInitialRouteFromPath } from "framer/build/router"
 import { createPublicKey } from "crypto"
+import Projects from "./projects"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 gsap.registerPlugin(ScrollToPlugin)
 
-const scrollToId = (id: string, duration = 1) => {
+const scrollToId = (id: string, duration = 0.5) => {
     gsap.to(window, {
         delay: 0.2,
         duration: 0.3,
         scrollTo: { y: `#${id}`, offsetY: 140 },
-        ease: "power1.inOut",
+        ease: "power2.in",
     })
 }
-
-const navigation = [
-    { name: "Home", href: "../", id: "home", current: true },
-    { name: "Projects", href: "#projects", current: false },
-    { name: "About me", href: "#", current: false },
-]
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ")
 }
 
 export default function NavBar() {
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger)
+        gsap.to(".text-gray-400", {
+            delay: '0.5',
+            color: 'black',
+            scrollTrigger: {
+                trigger: "#intro",
+                start: "top",
+                scrub: true,
+            },
+        })
+    }, [])
     return (
         <>
             <div
@@ -60,37 +68,13 @@ export default function NavBar() {
                                     </div>
                                     <div className="hidden items-baseline md:block">
                                         <div className="ml-10 flex items-baseline space-x-5">
-                                            {navigation.map((item) => (
-                                                <a
-                                                    key={item.name}
-                                                    href={item.href}
-                                                    onClick={(e) => {
+                                            <a href="#Projects" onClick={(e) => {
                                                         e.preventDefault()
-                                                        if (
-                                                            item.href ==
-                                                            "#projects"
-                                                        ) {
                                                             scrollToId(
                                                                 "projects"
                                                             )
-                                                            item.current = true
-                                                        }
-                                                    }}
-                                                    className={classNames(
-                                                        item.current
-                                                            ? " text-gray-900 font-semibold"
-                                                            : "text-gray-400  hover:text-gray-500",
-                                                        "px-3 py-2 rounded-md text-sm font-normal"
-                                                    )}
-                                                    aria-current={
-                                                        item.current
-                                                            ? "page"
-                                                            : undefined
-                                                    }
-                                                >
-                                                    {item.name}
-                                                </a>
-                                            ))}
+                                                    }} 
+                                                    className="text-sm text-gray-400 px-3 py-2 rounded-md hover:text-gray-500">Projects</a>
                                         </div>
                                     </div>
                                     <div className="-mr-2 flex md:hidden">
@@ -116,7 +100,7 @@ export default function NavBar() {
 
                             <Disclosure.Panel className="md:hidden">
                                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                                    {navigation.map((item) => (
+                                    {/* {navigation.map((item) => (
                                         <Disclosure.Button
                                             key={item.name}
                                             // as="a"
@@ -136,7 +120,7 @@ export default function NavBar() {
                                         >
                                             {item.name}
                                         </Disclosure.Button>
-                                    ))}
+                                    ))} */}
                                 </div>
                             </Disclosure.Panel>
                         </>

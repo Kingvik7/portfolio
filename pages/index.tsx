@@ -15,6 +15,18 @@ import gsap from "gsap"
 
 export default function Home(): JSX.Element {
     useEffect(() => {
+        // gsap.registerPlugin(ScrollTrigger)
+        // gsap.to("#header", {
+        //     scale: "0.4",
+        //     height: "400px",
+        //     // ease: "power1.inOut",
+        //     scrollTrigger: {
+        //         trigger: "#header",
+        //         start: "top top",
+        //         end: "bottom top",
+        //         scrub: true,
+        //     },
+        // })
         gsap.timeline({ delay: 2.5 }).fromTo(
             "#nav",
             { opacity: 0 },
@@ -38,7 +50,7 @@ export default function Home(): JSX.Element {
             <NavBar />
             <main className={styles.main}>
                 <div className="App">
-                    <header className="container justify-center heading flex flex-col px-2">
+                    <header id="intro" className="container justify-center heading flex flex-col px-2">
                         <NameAnim />
                         <NameTitle
                             first="Product Designer, "
