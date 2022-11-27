@@ -34,15 +34,6 @@ function classNames(...classes) {
 export default function NavBar() {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
-        gsap.to(".text-gray-400", {
-            delay: '0.5',
-            color: 'black',
-            scrollTrigger: {
-                trigger: "#intro",
-                start: "top",
-                scrub: true,
-            },
-        })
     }, [])
     return (
         <>
@@ -74,7 +65,7 @@ export default function NavBar() {
                                                                 "projects"
                                                             )
                                                     }} 
-                                                    className="text-sm text-gray-400 px-3 py-2 rounded-md hover:text-gray-500">Projects</a>
+                                                    className="Projects text-sm text-gray-400 px-3 py-2 rounded-md hover:text-gray-500">Projects</a>
                                         </div>
                                     </div>
                                     <div className="-mr-2 flex md:hidden">

@@ -8,7 +8,7 @@ const project = {
     breadcrumbs: [{ id: 1, name: "Projects", href: "../../" }],
 
     description:
-        "Stage Manager is a new feature introduced on macOS Ventura for window mangement and multitasking. While the current implementation of stage manager is aesthetically pleasing, discoveribility of this new feature can be difficult for novice users as it does not blend with existing macOS features. This redesign mainly aims to combine stage manager with existing macOS features to improve discoveribility for novice users and also enhance multi-tasking for expert users.",
+        "Stage Manager is a feature introduced on macOS Ventura for window management and multitasking. While the current implementation of Stage Manager is aesthetically pleasing, the discoverability of this feature can be a problem for novice users as it does not blend with existing macOS features. This redesign mainly aims to combine stage manager with existing macOS features to improve discoverability for novice users while also enhancing multi-tasking for expert users.",
     highlights: ["Based on macOS Ventura Beta version 2"],
     tag1: "Redesign",
     tag2: "Figma",

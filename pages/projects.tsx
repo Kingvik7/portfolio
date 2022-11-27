@@ -10,7 +10,7 @@ const featuredcallout = [
         name: "Rethinking Stage Manager in macOS Ventura",
         description: "Critical Analysis and Redesign",
         imageSrc: stagemanager,
-        href: "stagemanager/",
+        href: "stagemanager",
         tag1: "Redesign",
         tag2: "Figma",
         tag3: "Concept",

@@ -144,6 +144,9 @@ export default function Home(): JSX.Element {
                 scrub: true,
             },
         })
+        gsap.to(".Projects", {
+            color: 'black',
+        })
     }, [])
     return (
         <div className={styles.container}>

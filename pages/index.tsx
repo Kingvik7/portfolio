@@ -15,18 +15,6 @@ import gsap from "gsap"
 
 export default function Home(): JSX.Element {
     useEffect(() => {
-        // gsap.registerPlugin(ScrollTrigger)
-        // gsap.to("#header", {
-        //     scale: "0.4",
-        //     height: "400px",
-        //     // ease: "power1.inOut",
-        //     scrollTrigger: {
-        //         trigger: "#header",
-        //         start: "top top",
-        //         end: "bottom top",
-        //         scrub: true,
-        //     },
-        // })
         gsap.timeline({ delay: 2.5 }).fromTo(
             "#nav",
             { opacity: 0 },
@@ -35,6 +23,15 @@ export default function Home(): JSX.Element {
                 ease: "power1.inOut",
             }
         )
+        gsap.to(".Projects", {
+            delay: '0.5',
+            color: 'black',
+            scrollTrigger: {
+                trigger: "#intro",
+                start: "center",
+                scrub: true,
+            },
+        })
     }, [])
 
     return (
