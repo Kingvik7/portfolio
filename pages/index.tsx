@@ -15,17 +15,13 @@ import gsap from "gsap"
 
 export default function Home(): JSX.Element {
     useEffect(() => {
-        gsap.timeline({ delay: 2.5 }).fromTo(
-            "#nav",
-            { opacity: 0 },
-            {
-                opacity: 1,
-                ease: "power1.inOut",
-            }
-        )
+        gsap.timeline({ delay: 2.5 }).from("#nav", {
+            opacity: 0,
+            ease: "power1.inOut",
+        })
         gsap.to(".Projects", {
-            delay: '0.5',
-            color: 'black',
+            delay: "0.5",
+            color: "black",
             scrollTrigger: {
                 trigger: "#intro",
                 start: "center",
@@ -47,7 +43,10 @@ export default function Home(): JSX.Element {
             <NavBar />
             <main className={styles.main}>
                 <div className="App">
-                    <header id="intro" className="container justify-center heading flex flex-col px-2">
+                    <header
+                        id="intro"
+                        className="container justify-center heading flex flex-col px-2"
+                    >
                         <NameAnim />
                         <NameTitle
                             first="Product Designer, "

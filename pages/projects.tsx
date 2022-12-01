@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import stagemanager from "../images/stagemanager.jpg"
 import tour from "../images/tour.jpg"
 import mobility from "../images/mobility.jpg"
@@ -118,10 +119,12 @@ export default function Projects() {
                                     />
                                 </div>
                                 <h3 className="mt-6 text-base font-semibold text-gray-900">
-                                    <a href={callout.href}>
-                                        <span className="absolute inset-0" />
-                                        {callout.name}
-                                    </a>
+                                    <Link href={callout.href}>
+                                        <a>
+                                            <span className="absolute inset-0" />
+                                            {callout.name}
+                                        </a>
+                                    </Link>
                                 </h3>
                                 <p className=" text-sm text-gray-500">
                                     {callout.description}

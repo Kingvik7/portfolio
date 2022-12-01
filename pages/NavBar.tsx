@@ -20,10 +20,10 @@ gsap.registerPlugin(ScrollToPlugin)
 
 const scrollToId = (id: string, duration = 0.5) => {
     gsap.to(window, {
-        delay: 0.2,
-        duration: 0.3,
+        // delay: 0.2,
+        duration: 0.5,
         scrollTo: { y: `#${id}`, offsetY: 140 },
-        ease: "power2.in",
+        ease: "sine.inOut",
     })
 }
 
@@ -59,13 +59,14 @@ export default function NavBar() {
                                     </div>
                                     <div className="hidden items-baseline md:block">
                                         <div className="ml-10 flex items-baseline space-x-5">
-                                            <a href="#Projects" onClick={(e) => {
-                                                        e.preventDefault()
-                                                            scrollToId(
-                                                                "projects"
-                                                            )
-                                                    }} 
-                                                    className="Projects text-sm text-gray-400 px-3 py-2 rounded-md hover:text-gray-500">Projects</a>
+                                            <a
+                                                onClick={() => {
+                                                    scrollToId("projects")
+                                                }}
+                                                className="Projects text-sm text-gray-400 px-3 py-2 rounded-md hover:text-red-500"
+                                            >
+                                                Projects
+                                            </a>
                                         </div>
                                     </div>
                                     <div className="-mr-2 flex md:hidden">

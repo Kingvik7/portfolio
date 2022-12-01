@@ -124,7 +124,7 @@ const callouts6 = [
 
 export default function Home(): JSX.Element {
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger)
+        // gsap.registerPlugin(ScrollTrigger)
         gsap.timeline({}).fromTo(
             "#header",
             { opacity: 0 },
@@ -145,7 +145,7 @@ export default function Home(): JSX.Element {
             },
         })
         gsap.to(".Projects", {
-            color: 'black',
+            color: "black",
         })
     }, [])
     return (
