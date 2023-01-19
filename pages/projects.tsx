@@ -19,11 +19,11 @@ const featuredcallout = [
 ]
 const callouts = [
     {
-        name: "VisBot",
+        name: "Mobility Assist",
         description:
             "A LiDAR powered mobile application for Mobility Assistance for Visually Impaired users",
         imageSrc: mobility,
-        href: "#",
+        href: "mobilityassist",
         tag1: "swift",
         tag2: "LiDAR",
         tag3: "ArKit",
