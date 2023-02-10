@@ -5,7 +5,7 @@ import { RadioGroup } from "@headlessui/react"
 const project = {
     name: "Mobility Assistance for the Visually Impaired Using LiDAR",
     href: "https://ieeexplore.ieee.org/document/9744605",
-    breadcrumbs: [{ id: 1, name: "Projects", href: "../../" }],
+    breadcrumbs: [{ id: 1, name: "Projects", href: "../../#projects" }],
 
     description:
         "An accessibility feature/mobile app to provide mobility assistance for the visually impaired using LiDAR. Developed using Swift for real-time 3D construction of the environment with haptic feedback relative to distance from obstacle. Acts as asubstitute for walking canes to improve surrounding accessibility",

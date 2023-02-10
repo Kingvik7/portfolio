@@ -42,7 +42,7 @@ const callouts = [
         description:
             "A mobile application which helps the user identify various landmarks and tourists attractions by taking a picture of the landmark",
         imageSrc: tour,
-        href: "#",
+        href: "tourtime",
         tag1: "ionic",
         tag2: "python",
         tag3: "Tensorflow",
@@ -50,7 +50,7 @@ const callouts = [
     {
         name: "Promexa",
         description:
-            "A mobile application which helps the user identify various landmarks and tourists attractions by taking a picture of the landmark",
+            "As an intern in a team to develop Promexa - an online proctored examination platform used by schools in Germany and India. View more on company website",
         imageSrc: cerebranium,
         href: "https://cerebranium.com/promexa",
         tag1: "flutter",
@@ -83,10 +83,12 @@ export default function Projects() {
                                     />
                                 </div>
                                 <h3 className="mt-6 text-base font-semibold text-gray-900">
-                                    <a href={featuredcallout.href}>
+                                    <Link href={featuredcallout.href}>
+                                        <a>
                                         <span className="absolute inset-0" />
                                         {featuredcallout.name}
-                                    </a>
+                                        </a>
+                                    </Link>
                                 </h3>
                                 <p className=" text-sm text-gray-500">
                                     {featuredcallout.description}

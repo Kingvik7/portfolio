@@ -16,12 +16,13 @@ import { inferInitialRouteFromPath } from "framer/build/router"
 import { createPublicKey } from "crypto"
 import Projects from "./projects"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+import Link from "next/link"
 gsap.registerPlugin(ScrollToPlugin)
 
-const scrollToId = (id: string, duration = 0.5) => {
+const scrollToId = (id: string, duration = 0.2) => {
     gsap.to(window, {
         // delay: 0.2,
-        duration: 0.5,
+        duration: 0.2,
         scrollTo: { y: `#${id}`, offsetY: 140 },
         ease: "sine.inOut",
     })
@@ -50,12 +51,14 @@ export default function NavBar() {
                             <div className="max-w-5xl px-4 sm:px-6 lg:px-8">
                                 <div className="flex items-center justify-between h-16">
                                     <div className="flex items-center">
+                                        <Link href="../">
                                         <a
-                                            href="../"
+
                                             className="flex-shrink-0 w-8 h-8 "
                                         >
                                             <Image src={logo} />
                                         </a>
+                                        </Link>
                                     </div>
                                     <div className="hidden items-baseline md:block">
                                         <div className="ml-10 flex items-baseline space-x-5">
@@ -63,12 +66,12 @@ export default function NavBar() {
                                                 onClick={() => {
                                                     scrollToId("projects")
                                                 }}
-                                                className="Projects text-sm text-gray-400 px-3 py-2 rounded-md hover:text-red-500"
+                                                className="Projects text-sm text-gray-400 px-3 py-2 rounded-md hover:text-gray-500"
                                             >
                                                 Projects
                                             </a>
                                             <a
-                                                className=" text-sm text-gray-400 px-3 py-2 rounded-md hover:text-gray-00"
+                                                className=" text-sm text-gray-400 px-3 py-2 rounded-md hover:text-gray-500"
                                             >
                                                 Resume
                                             </a>
@@ -76,9 +79,7 @@ export default function NavBar() {
                                     </div>
                                     <div className="-mr-2 flex md:hidden">
                                         <Disclosure.Button className="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 ">
-                                            <span className="sr-only">
-                                                Open main menu
-                                            </span>
+                                         
                                             {open ? (
                                                 <XMarkIcon
                                                     className="block h-6 w-6"

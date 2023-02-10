@@ -155,9 +155,9 @@ export default function Home(): JSX.Element {
                     ))}
                 </div>
                 <Image src={frame2} />
-                <Title text="Operational Flowchart" />
+                {/* <Title text="Operational Flowchart" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
-                </div>
+                </div> */}
    
             </div>
             <Footer />
