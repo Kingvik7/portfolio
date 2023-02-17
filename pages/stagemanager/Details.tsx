@@ -1,12 +1,11 @@
 import { useState } from "react"
 import { StarIcon } from "@heroicons/react/20/solid"
 import { RadioGroup } from "@headlessui/react"
-import report from "./RethinkingStageManager.pdf"
 
 const project = {
-    name: "Rethinking Stage Manger on macOS Ventura",
+    name: "Rethinking Stage Manager on macOS Ventura",
     href: "RethinkingStageManager.pdf",
-    breadcrumbs: [{ id: 1, name: "Projects", href: "../../#projects" }],
+    breadcrumbs: [{ id: 1, name: "Projects", href: "../../" }],
 
     description:
         "Stage Manager is a feature introduced on macOS Ventura for window management and multitasking. While the current implementation of Stage Manager is aesthetically pleasing, the discoverability of this feature can be a problem for novice users as it does not blend with existing macOS features. This redesign mainly aims to combine stage manager with existing macOS features to improve discoverability for novice users while also enhancing multi-tasking for expert users.",
@@ -81,7 +80,7 @@ export default function Details() {
                         </h3>
                         <form className="">
                         <a download href="RethinkingStageManager.pdf" target='_blank' rel="noreferrer" className="mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-pink-600 py-3 px-8 text-center font-medium text-white hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                                View on IEEE
+                              Download Report
                             </a>
                         </form>
                     </div>

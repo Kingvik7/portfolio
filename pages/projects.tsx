@@ -4,11 +4,11 @@ import stagemanager from "../images/stagemanager.jpg"
 import tour from "../images/tour.jpg"
 import mobility from "../images/mobility.jpg"
 import cerebranium from "../images/cerebranium.jpg"
-import mobot from "../images/mobot.jpg"
+import kitchenmate from "../images/kitchenmate.jpg"
 
 const featuredcallout = [
     {
-        name: "Rethinking Stage Manager in macOS Ventura",
+        name: "Rethinking Stage Manager on macOS Ventura",
         description: "Critical Analysis and Redesign",
         imageSrc: stagemanager,
         href: "stagemanager",
@@ -29,13 +29,13 @@ const callouts = [
         tag3: "ArKit",
     },
     {
-        name: " MoBot",
-        description: "Journals and note-taking",
-        imageSrc: mobot,
-        href: "#",
-        tag1: "swift",
-        tag2: "LiDAR",
-        tag3: "RealityKit",
+        name: "KitchenMate",
+        description: "An app designed for the amazon echo show to help users cook healthy and sustainable recipes.",
+        imageSrc: kitchenmate,
+        href: "kitchenmate",
+        tag1: "IxD",
+        tag2: "Figma",
+        tag3: "UCD/HCDE",
     },
     {
         name: "Virtual Tourist Guide",

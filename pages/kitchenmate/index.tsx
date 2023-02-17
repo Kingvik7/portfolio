@@ -11,14 +11,13 @@ import Details from "./Details"
 import Footer from "../footer"
 import FAQGrid from "https://framer.com/m/FAQ-Grid-uvJp.js@rbQiKXASeSNS2d01495V"
 import { XMarkIcon } from "@heroicons/react/24/outline"
-import stagemanager2 from "../../images/stagemanager2.png"
+import stagemanager2 from "./images/screen.png"
 import frame1 from "./images/frame1.jpg"
 import frame2 from "./images/frame2.jpg"
 import frame3 from "./images/frame3.jpg" 
 import frame4 from "./images/frame4.jpg"
 import frame5 from "./images/frame5.jpg"
 import frame6 from "./images/frame6.jpg"
-// import frame7 from "./images/frame7.png"
 import { useEffect } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
@@ -27,98 +26,49 @@ import Title from "../title"
 
 const callouts1 = [
     {
-        name: "Visibility",
+        name: "Interviews and Observations",
         description:
-            "All open apps are moved to the left-hand side of the screen with a 3D perspective & a live preview of each window. The user can click on any of the previewed windows to display the app On-Stage.",
+            "In the initial phase of user research, we conducted interviews and contextual observations to gather insights and better understand the user's needs and behaviors.",
     },
     {
-        name: "On-Stage",
+        name: "Affinity Mapping",
         description:
-            "These are the apps that are visible on the desktop and being used by the user.",
+            "By consolidating and grouping the insights from these interviews and contextual observations, we were able to gain a comprehensive understanding of the user's needs and behaviors.",
     },
     {
-        name: "Off-Stage",
+        name: "Personas",
         description:
-            "These are the apps that are not being used by the user and are on the left-hand side of the screen. ",
+            "Leveraging these insights, we created multiple user personas that highlight their unique needs, goals, and frustrations, using POV (point of view) statements.",
     },
     {
-        name: "Grouped Apps",
-        description: "Apps can also be grouped and used on the desktop.",
+        name: "User Journeys",
+        description: "We created individual user journeys that map out current user experiences and pain points. These user journeys enable us to empathize with our users and design solutions that cater to their unique needs and goals.",
     },
 ]
 
 const callouts2 = [
     {
-        name: "Screen Real estate",
+        name: "Brainstorming",
         description:
-            "The windows of open apps take up a lot of screen real estate on the left-hand side of the screen. These windows can be moved elsewhere which integrates with existing window management features.",
+            "We conducted a brainstorming session using various ideation techniques such as multiple ideas, worst idea possible, etc, to generate a diverse range of design concepts. After evaluating the ideas based on factors such as feasibility, impact, and user relevance, we selected the best features for the app and organized them into categories.",
     },
     {
-        name: "Discoveribility",
+        name: "Storyboarding",
         description:
-            "For a novice user, discovering new features in stage manager can be challenging and does not blend in well with existing macOS features such as minimizing an app or mission control.",
+            "To create a compelling vision of how our app could help users in real-world scenarios, we used the insights gathered from user research to develop storyboards. These storyboards depict hypothetical situations and illustrate how users would interact with the app in similar scenarios. This approach allowed us to envision the user experience and refine our design concepts to ensure that they are aligned with the user's needs and goals.",
     },
     {
-        name: "Low Frame-rates",
+        name: "Low Fidelity Wireframes",
         description:
-            "Older non-apple silicon-based macs face potential frame-rate issues due to the 3D perspective of the windows having a live preview of the app.",
-    },
-    {
-        name: "No Split-Screen View",
-        description:
-            "Split-screen cannot be used when two or more apps are grouped in stage manager.",
+        "To facilitate the early stages of the design process and enable quick iterations, we created low-fidelity wireframes on Figma. These wireframes allowed us to explore multiple design concepts quickly and refine them based on user feedback and testing.",
     },
 ]
 
 const callouts3 = [
     {
-        name: "Incorporating Stage Manager for All User Types",
+        name: "Home Tab",
         description:
-            "This redesign mainly aims to combine stage manager with existing features such as minimizing to the dock, mission control & gesture controls to improve discoverability for all types of users. This results in a seamless window management system. There are now 2 ways to use stage manager depending on the user type.",
-    },
-    {
-        name: "Novice Users",
-        description:
-            "A Novice user generally would not use gestures, mission control, etc and mainly uses the dock for navigation. All open apps are moved to the dock similar to when an app is minimized. Apps are grouped together similar to folders on iOS. ",
-    },
-]
-
-const callouts4 = [
-    {
-        name: "Grouping Apps",
-        description:
-            "Apps can be grouped by dragging open windows into existing app groups & can also be un-grouped using the minus icon. Alternatively, the user can use the context menu.",
-    },
-    {
-        name: "Live Preview",
-        description:
-            "Left-clicking on the apps/group icon shows a live preview of the app window.",
-    },
-    {
-        name: "Context Menu",
-        description:
-            "Right-clicking on the app/group brings up a context menu to customise the group. The user can add to the group, ungroup, show On-Stage or quit all apps.",
-    },
-    {
-        name: "Discoveribility",
-        description:
-            "With stage manager being moved to the dock, discoverability for novice users would improve.",
-    },
-]
-
-const callouts5 = [
-    {
-        name: "Experienced Users",
-        description:
-            "An experienced user would generally use gestures and mission control for navigation. All open apps/groups are also visible in mission control. Apps can be grouped by dragging open windows onto other apps. ",
-    },
-]
-
-const callouts6 = [
-    {
-        name: "Using Hot Corners",
-        description:
-            "Complex grid views can be created by dragging & holding windows to a corner/side (hot corners).",
+            "The Home tab is designed to provide quick access to frequently used features, enabling users to perform commonly used actions with ease. By consolidating the most frequently used functions into one tab, we aim to enhance the user experience by reducing the time and effort required to navigate the app.",
     },
 ]
 
@@ -159,13 +109,13 @@ export default function Home(): JSX.Element {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar />
-            <div className="bg-gray-100  innerShadow">
+            <div className="bg-yellow-50 innerShadow">
                 <main
                     id="header"
                     className="z-0 mx-4 max-w-5xl xl:mx-auto inset-x-0 md:mx-12 lg:mx-24  px-2 py-28 sm:py-32 md:py-28 lg:py-56 flex md:flex-row justify-center flex-col  gap-4"
                 >
-                    <h1 className="w-full md:w-1/3 text-gray-500 text-3xl md:text-5xl align-center font-['Sfpro']">
-                        Rethinking Stage Manager on macOS Ventura
+                    <h1 className="w-full md:w-1/3 my-auto  text-gray-700 text-3xl md:text-5xl align-center font-['SentientItalic']">
+                        KitchenMate 
                     </h1>
                     <div className="sm:w-full md:w-2/3">
                         <Image src={stagemanager2} />
@@ -228,70 +178,47 @@ export default function Home(): JSX.Element {
                     ))}
                 </div>
                 <Image src={frame3} />
-                <div className="mt-20"></div>
+                <h3 className="text-base mt-20 font-semibold text-gray-900">
+                                <a>
+                                    {/* <span className="absolute inset-0" /> */}
+                                    Recipe Tab
+                                </a>
+                </h3>
+                <div className="w-12 h-0.5 my-1.5 rounded-lg bg-gray-400"></div>
+                 <p className="mt-1 text-sm text-gray-500">
+                 The Recipe page offers a comprehensive overview of each dish, including a list of ingredients, suggested serving sizes, required equipment, and video tutorials to guide users through each step of the cooking process. Additionally, the app allows users to preview the recipe instructions before beginning to cook, ensuring that they have a clear understanding of the required steps and ingredients.
+                </p>
                 <Image src={frame4} />
-                <div className="mt-20"></div>
+                <h3 className="text-base mt-20 font-semibold text-gray-900">
+                                <a>
+                                    {/* <span className="absolute inset-0" /> */}
+                                    Recipe Tab - While Cooking
+                                </a>
+                </h3>
+                <div className="w-12 h-0.5 my-1.5 rounded-lg bg-gray-400"></div>
+                 <p className="mt-1 mb-10 text-sm text-gray-500">
+                 The Recipe page while cooking provides users with a step-by-step guide to cooking a dish, allowing them to easily follow along with the recipe. By presenting detailed instructions in a clear and concise manner, the app aims to make cooking more accessible and enjoyable for users. This feature is particularly useful for novice cooks or those who want to try new recipes but are unfamiliar with certain cooking techniques. The Recipe Detail page also includes helpful tips and tricks to ensure that users achieve the best results possible.
+                </p>
                 <Image src={frame5} />
                 <div className="mt-20"></div>
+                <h3 className="text-base mt-20 font-semibold text-gray-900">
+                                <a>
+                                    {/* <span className="absolute inset-0" /> */}
+                                    Pantry Tab
+                                </a>
+                </h3>
+                <div className="w-12 h-0.5 my-1.5 rounded-lg bg-gray-400"></div>
+                 <p className="mt-1 mb-10 text-sm text-gray-500">
+                 The Pantry tab allows users to manage the ingredients they have on hand, with expiring items highlighted for easy identification. This feature is especially useful for minimizing food waste and ensuring that users can make the most of the ingredients they have. Based on the ingredients available, the app suggests recipes that users can prepare using the ingredients in their pantry. In addition, the Pantry tab also allows users to add or shop for more ingredients, making it a convenient tool for meal planning and grocery shopping.
+                </p>
                 <Image src={frame6} />
                 <Title text="Stage Manager on the Dock" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
-                    {callouts4.map((callout) => (
-                        <div key={callout.name} className="">
-                            <h3 className="text-base font-semibold text-gray-900">
-                                <a>
-                                    {/* <span className="absolute inset-0" /> */}
-                                    {callout.name}
-                                </a>
-                            </h3>
-                            <div className="w-12 h-0.5 my-1.5 rounded-lg bg-gray-400"></div>
-                            <p className="mt-1 text-sm text-gray-500">
-                                {callout.description}
-                            </p>
-                        </div>
-                    ))}
                 </div>
-                <iframe  className="w-full h-96" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FceIOrE14mSUlIorvNXeeqR%2FUntitled%3Fpage-id%3D0%253A1%26node-id%3D1%253A727%26viewport%3D195%252C448%252C0.08%26scaling%3Dmin-zoom%26starting-point-node-id%3D1%253A727%26show-proto-sidebar%3D1" allowfullscreen></iframe>
-                {/* <Image src={frame4} /> */}
+                <iframe  className="rounded-lg" width="100%" height="700px" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FceIOrE14mSUlIorvNXeeqR%2FUntitled%3Fpage-id%3D0%253A1%26node-id%3D1%253A727%26viewport%3D195%252C448%252C0.08%26scaling%3Dmin-zoom%26starting-point-node-id%3D1%253A727%26show-proto-sidebar%3D1" allowFullScreen ></iframe>
                 <Title text="Stage Manager in Mission Control" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
-                    {callouts5.map((callout) => (
-                        <div key={callout.name} className="">
-                            <h3 className="text-base font-semibold text-gray-900">
-                                <a>
-                                    {/* <span className="absolute inset-0" /> */}
-                                    {callout.name}
-                                </a>
-                            </h3>
-                            <div className="w-12 h-0.5 my-1.5 rounded-lg bg-gray-400"></div>
-                            <p className="mt-1 text-sm text-gray-500">
-                                {callout.description}
-                            </p>
-                        </div>
-                    ))}
                 </div>
-                {/* <Image src={frame5} /> */}
-                <Title text="Split-Screen View" />
-                <div className="mt-0 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-1 lg:gap-x-16 lg:gap-y-8"></div>
-                {/* <Image src={frame6} /> */}
-                <Title text="Creating complex Split-Screen Views" />
-                <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
-                    {callouts6.map((callout) => (
-                        <div key={callout.name} className="">
-                            <h3 className="text-base font-semibold text-gray-900">
-                                <a>
-                                    {/* <span className="absolute inset-0" /> */}
-                                    {callout.name}
-                                </a>
-                            </h3>
-                            <div className="w-12 h-0.5 my-1.5 rounded-lg bg-gray-400"></div>
-                            <p className="mt-1 text-sm text-gray-500">
-                                {callout.description}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-                {/* <Image src={frame7} /> */}
             </div>
             <Footer />
         </div>
