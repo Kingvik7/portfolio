@@ -216,8 +216,11 @@ export default function Home(): JSX.Element {
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
                 </div>
                 <iframe  className="rounded-lg border" width="100%" height="700px" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FceIOrE14mSUlIorvNXeeqR%2FUntitled%3Fpage-id%3D0%253A1%26node-id%3D1%253A727%26viewport%3D195%252C448%252C0.08%26scaling%3Dmin-zoom%26starting-point-node-id%3D1%253A727%26show-proto-sidebar%3D1" allowFullScreen ></iframe>
-                <Title text="EValuation" />
-                <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
+                <Title text="Evaluation" />
+                <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-1 lg:gap-x-16 lg:gap-y-8">
+                <p className=" mb-10 text-sm text-gray-500">
+                To ensure the effectiveness of our design decisions and validate the usability of our product, we conducted user testing with 6 individuals using the prototype we created in Figma. We chose an in-person testing method to provide a more comprehensive assessment of their interactions with the design elements and to be able to quickly identify any issues or difficulties they encountered in navigating through the product. By doing so, we were able to obtain valuable feedback and insights, enabling us to further refine and improve our design in order to provide an optimal user experience.
+                </p>
                 </div>
             </div>
             <Footer />

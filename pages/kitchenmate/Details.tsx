@@ -9,7 +9,7 @@ const project = {
     breadcrumbs: [{ id: 1, name: "Projects", href: "../../#projects" }],
 
     description:
-        "A cooking app designed for Amazon Echo Show/iPad, making it easier than ever to prepare healthy and sustainable meals. With features like personalized recipe recommendations based on available ingredients, sustainability, and calorie tracking goals, all integrated with smart devices, that allow users to cook healthy meals that align with their goals with ease.",
+        "A cooking app designed for the Amazon Echo Show/iPad, making it easier than ever to prepare healthy and sustainable meals. With features like personalized recipe recommendations based on available ingredients, sustainability, and calorie tracking goals, all integrated with smart devices, that allow users to cook healthy meals that align with their goals with ease.",
     highlights: ["Part of Interaction Design Group Coursework", "Designed using a UCD/HCDE approach following User research, Conceptual design, Detailed design and Evaluation"], 
     tag1: "IxD",
     tag2: "Figma",
@@ -80,8 +80,8 @@ export default function Details() {
                             Links
                         </h3>
                         <form className="">
-                        <a download href="/RethinkingStageManager.pdf" target='_blank' rel="noreferrer" className="mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-pink-600 py-3 px-8 text-center font-medium text-white hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                                View on IEEE
+                        <a download href="/Report.pdf" target='_blank' rel="noreferrer" className="mt-2 flex w-full items-center justify-center rounded-md border border-transparent bg-pink-600 py-3 px-8 text-center font-medium text-white hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                Download Coursework Report
                             </a>
                         </form>
                     </div>
