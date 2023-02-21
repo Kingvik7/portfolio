@@ -66,12 +66,12 @@ export default function NavBar() {
                                                 onClick={() => {
                                                     scrollToId("projects")
                                                 }}
-                                                className="Projects text-sm text-gray-400 px-3 py-2 rounded-md hover:text-gray-500"
+                                                className="Projects text-sm text-gray-400 px-3 py-2 rounded-md hover:text-gray-500 cursor-pointer"
                                             >
                                                 Projects
                                             </a>
                                             <a
-                                                className=" text-sm text-gray-400 px-3 py-2 rounded-md hover:text-gray-500"
+                                                href='/Resume.pdf' target='_blank' rel='noreferrrer' className=" text-sm text-gray-400 px-3 py-2 rounded-md hover:text-gray-500 cursor-pointer"
                                             >
                                                 Resume
                                             </a>

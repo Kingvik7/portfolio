@@ -22,9 +22,11 @@ export default function Home(): JSX.Element {
         gsap.to(".Projects", {
             delay: "0.5",
             color: "black",
+            // toggleClass: 'active',
             scrollTrigger: {
                 trigger: "#intro",
                 start: "center",
+                end: 'bottom',
                 scrub: true,
             },
         })

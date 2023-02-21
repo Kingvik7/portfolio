@@ -79,7 +79,7 @@ export default function Projects() {
                                     <Image
                                         src={featuredcallout.imageSrc}
                                         layout="fill"
-                                        className="w-full h-full object-center object-cover group-hover:scale-105 transition-transform"
+                                        className="w-full h-full object-center object-cover group-hover:scale-105 transition-transform transitionDuration: 700"
                                     />
                                 </div>
                                 <h3 className="mt-6 text-base font-semibold text-gray-900">
