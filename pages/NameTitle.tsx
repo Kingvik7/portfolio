@@ -13,11 +13,11 @@ function NameTitle(props) {
     return (
         <div className="text-center mt-0 desc">
             <div className="mx-4 text-center font-['SentientItalic']">
-                <a className="desc desc1">{props.first}</a>
-                <a className="desc font-['Sentient'] text-blue-500">
+                <a className="desc desc2">{props.first}</a>
+                <a className="desc font-['Sentient'] ">
                     {props.second}
                 </a>
-                <a className="desc desc2 text-yellow-300">{props.third}</a>
+                <a className="desc desc1 ">{props.third}</a>
             </div>
             <a className="desc text-gray-500 font-['SentientItalic']">
                 {props.fourth}
