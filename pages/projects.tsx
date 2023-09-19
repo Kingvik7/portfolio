@@ -1,10 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
 import stagemanager from "../images/stagemanager.jpg"
-import tour from "../images/tour.jpg"
+import random from "../images/random.jpg"
 import mobility from "../images/mobility.jpg"
 import cerebranium from "../images/cerebranium.jpg"
 import kitchenmate from "../images/kitchenmate.jpg"
+import usability from "../images/usability.png"
+
 
 const featuredcallout = [
     {
@@ -38,15 +40,16 @@ const callouts = [
         tag3: "UCD/HCDE",
     },
     {
-        name: "Virtual Tourist Guide",
+        name: "Random Tech",
         description:
-            "A mobile application which helps the user identify various landmarks and tourists attractions by taking a picture of the landmark",
-        imageSrc: tour,
-        href: "tourtime",
-        tag1: "ionic",
-        tag2: "python",
+            "Some of the things that i've worked on in the past",
+        imageSrc: random,
+        href: "random",
+        tag1: "random projects",
+        tag2: "fun",
         tag3: "Tensorflow",
     },
+    
     {
         name: "Promexa",
         description:
@@ -57,6 +60,16 @@ const callouts = [
         tag2: "internship",
         tag3: "education",
     },
+    {
+    name: "Crisis UK: Usability Evaluation Test",
+    description:
+        "Part of MSc HCID coursework to conduct a website UX evaluation for Crisis.uk. Click to download coursework report  ",
+    imageSrc: usability,
+    href: "/usability.pdf",
+    tag1: "HCID Coursework",
+    tag2: "UX evaluation",
+    tag3: "Crisis UK",
+},
 ]
 
 export default function Projects() {

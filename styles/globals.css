@@ -110,6 +110,10 @@ a {
     color: transparent;
 }
 
+.bggradient{
+    background: linear-gradient(to right, #f7fcff,#e1f4ff);
+}
+
 .squiggle {
     background-color: #00b3ff;
     stroke-dasharray: 30450;

@@ -109,7 +109,7 @@ export default function Home(): JSX.Element {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar />
-            <div className="bg-yellow-50 innerShadow">
+            <div className="bg-purple-100 innerShadow">
                 <main
                     id="header"
                     className="z-0 mx-4 max-w-5xl xl:mx-auto inset-x-0 md:mx-12 lg:mx-24  px-2 py-28 sm:py-32 md:py-28 lg:py-56 flex md:flex-row justify-center flex-col  gap-4"
