@@ -113,7 +113,7 @@ export default function Home(): JSX.Element {
                     </h1>
                     </div>
                     <div className="sm:w-full md:w-1/3">
-                        <Image src={stagemanager2} priority />
+                        <Image src={stagemanager2} loading="eager" />
                     </div>
                 </main>
             </div>
