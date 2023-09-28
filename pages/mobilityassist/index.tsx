@@ -102,7 +102,7 @@ export default function Home(): JSX.Element {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar />
-            <div className="bg-orange-100 innerShadow">
+            <div className="bg-orange-100 h-[auto] innerShadow">
                 <main
                     id="header"
                     className=" z-0 mx-4 max-w-5xl xl:mx-auto inset-x-0 md:mx-12 lg:mx-24  px-2 py-28 sm:py-32 md:py-18 lg:py-18 flex md:flex-row justify-center flex-col  gap-4"
@@ -113,7 +113,7 @@ export default function Home(): JSX.Element {
                     </h1>
                     </div>
                     <div className="sm:w-full md:w-1/3">
-                        <Image src={stagemanager2} loading="eager" />
+                        <Image src={stagemanager2} />
                     </div>
                 </main>
             </div>
