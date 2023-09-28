@@ -10,6 +10,7 @@ module.exports = {
       },
     nextConfig,
     experimental: {
+        ssr: true,
         urlImports: [
             "https://framer.com/m/",
             "https://framerusercontent.com/",
