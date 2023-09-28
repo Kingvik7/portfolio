@@ -47,7 +47,7 @@ const callouts = [
         href: "random",
         tag1: "random projects",
         tag2: "fun",
-        tag3: "Tensorflow",
+        tag3: "Games",
     },
     
     {

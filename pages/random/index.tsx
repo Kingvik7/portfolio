@@ -244,10 +244,7 @@ export default function Home(): JSX.Element {
                                 SwiftUI
                             </div>
                             <div className="bg-gray-100 py-1 px-3 rounded-lg text-sm text-gray-500 tag">
-                                ArKit
-                            </div>
-                            <div className="bg-gray-100 py-1 px-3 rounded-lg text-sm text-gray-500 tag">
-                                RealityKit
+                                CoreData
                             </div>
                         </div>
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">

@@ -102,17 +102,17 @@ export default function Home(): JSX.Element {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar />
-            <div className="bg-orange-100  innerShadow">
+            <div className="bg-orange-100 innerShadow">
                 <main
                     id="header"
-                    className="z-0 mx-4 max-w-5xl xl:mx-auto inset-x-0 md:mx-12 lg:mx-24  px-2 py-28 sm:py-32 md:py-18 lg:py-18 flex md:flex-row justify-center flex-col  gap-4"
+                    className=" z-0 mx-4 max-w-5xl xl:mx-auto inset-x-0 md:mx-12 lg:mx-24  px-2 py-28 sm:py-32 md:py-18 lg:py-18 flex md:flex-row justify-center flex-col  gap-4"
                 >
                     <div className="flex align-middle">
                         <h1 className="w-full md:w-2/3 my-auto text-gray-700 text-3xl md:text-5xl align-center justify-center font-['SentientItalic'] ">
                         Mobility Assist
                     </h1>
                     </div>
-                    <div className="sm:w-full md:w-1/2">
+                    <div className="sm:w-full md:w-1/3">
                         <Image src={stagemanager2} priority />
                     </div>
                 </main>
