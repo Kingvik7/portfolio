@@ -40,6 +40,10 @@ export default function Home(): JSX.Element {
                     name="description"
                     content="This is a website to demonstrate some of the projects that I have worked on."
                 />
+                <meta 
+                    property="og:image" 
+                    content="ogImage.jpg"
+                /> 
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar />
