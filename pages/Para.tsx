@@ -1,4 +1,3 @@
-import { propsForLink } from "framer/build/modules/Link"
 import { gsap } from "gsap"
 import React, { useEffect } from "react"
 
