@@ -51,34 +51,39 @@ html {
     stroke-dasharray: 0 1078.79;
     stroke-dashoffset: 108;
     fill: none;
-    animation: dash 5s  cubic-bezier(0.8, 0.3, 0, 1) alternate infinite ;
+    animation: dash 7s  cubic-bezier(0.8, 0.3, 0, 1) alternate infinite ;
 }
 
 
 .drawSvg {
     position: absolute;
     z-index: 2;
-    fill: rgb(0, 0, 0) !important;
+    fill: black !important;
     stroke: #4d5562;
     stroke-linecap: round;
     stroke-width: 1;
     stroke-dasharray:0 1078.79;
     fill: white;
-    animation: dash 5s 320ms cubic-bezier(0.8, 0.3, 0, 1) alternate infinite ;
+    animation: dash 7s 250ms cubic-bezier(0.8, 0.2, 0, 1) alternate infinite ;
 }
 
 @keyframes dash {
-    to {
-        stroke-dasharray: 200;
-        stroke-dashoffset: 500;
-        opacity: 1;
+    50% {
+        stroke-dasharray: 500;
+        stroke-dashoffset: 512;
     }
+    100%{
+        stroke-dasharray: 1400;
+        stroke-dashoffset: 500;
+    }
+   
 }
 
 .two{
     stop-color: #bc2a8d;
     animation: changeColor2 2s 5s alternate infinite ;
 }
+  
   
 
 @keyframes changeColor1 {
@@ -87,7 +92,7 @@ html {
     }
  
     100% {
-      stop-color: #bc2a8d; 
+      stop-color: #4c9ff1; 
     }
   }
 
