@@ -47,7 +47,7 @@ html {
     position: absolute;
     z-index: 0;
     stroke: #bdc4ef;
-    stroke-width: 10;
+    stroke-width: 8;
     stroke-dasharray: 0 1078.79;
     stroke-dashoffset: 108;
     fill: none;
@@ -70,10 +70,42 @@ html {
 @keyframes dash {
     to {
         stroke-dasharray: 200;
-        stroke-dashoffset: 450;
+        stroke-dashoffset: 500;
         opacity: 1;
     }
 }
+
+.two{
+    stop-color: #bc2a8d;
+    animation: changeColor2 2s 5s alternate infinite ;
+}
+  
+
+@keyframes changeColor1 {
+    0% {
+      stop-color: #ecc1ff; 
+    }
+ 
+    100% {
+      stop-color: #bc2a8d; 
+    }
+  }
+
+  @keyframes changeColor2 {
+    0% {
+      stop-color: #bc2a8d; 
+    }
+ 
+    100% {
+      stop-color: #ecc1ff; 
+    }
+  }
+  
+
+  .one {
+    stop-color: #ecc1ff;
+    animation: changeColor1 2s 5s alternate infinite ;
+  }
   
 
 
