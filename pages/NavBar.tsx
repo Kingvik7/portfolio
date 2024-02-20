@@ -16,6 +16,7 @@ import { createPublicKey } from "crypto"
 import Projects from "./projects"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import Link from "next/link"
+
 gsap.registerPlugin(ScrollToPlugin)
 
 const scrollToId = (id: string, duration = 0.2) => {
@@ -51,12 +52,12 @@ export default function NavBar() {
                                 <div className="flex items-center justify-between h-16">
                                     <div className="flex items-center">
                                         <Link href="../">
-                                        <a
+                                        <div
 
                                             className="flex-shrink-0 w-8 h-8 "
                                         >
                                             <Image src={logo} />
-                                        </a>
+                                        </div>
                                         </Link>
                                     </div>
                                     <div className="hidden items-baseline md:block">

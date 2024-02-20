@@ -90,6 +90,7 @@ export default function Projects() {
                             >
                                 <div className="relative w-full h-80 rounded-md border overflow-hidden sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                                     <Image
+                                        alt="Image"
                                         src={featuredcallout.imageSrc}
                                         layout="fill"
                                         className="w-full h-full object-center object-cover group-hover:scale-105 transition-transform transitionDuration: 700"
@@ -97,10 +98,10 @@ export default function Projects() {
                                 </div>
                                 <h3 className="mt-6 text-base font-semibold text-gray-900">
                                     <Link href={featuredcallout.href}>
-                                        <a>
+
                                         <span className="absolute inset-0" />
                                         {featuredcallout.name}
-                                        </a>
+
                                     </Link>
                                 </h3>
                                 <p className=" text-sm text-gray-500">
@@ -128,6 +129,7 @@ export default function Projects() {
                             >
                                 <div className="relative w-full h-80 rounded-md border overflow-hidden sm:aspect-w-2  sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                                     <Image
+                                        alt="Image"
                                         src={callout.imageSrc}
                                         layout="fill"
                                         className="w-full h-full object-center object-cover group-hover:scale-105  transition-transform"
@@ -135,10 +137,10 @@ export default function Projects() {
                                 </div>
                                 <h3 className="mt-6 text-base font-semibold text-gray-900">
                                     <Link href={callout.href}>
-                                        <a>
+
                                             <span className="absolute inset-0" />
                                             {callout.name}
-                                        </a>
+
                                     </Link>
                                 </h3>
                                 <p className=" text-sm text-gray-500">

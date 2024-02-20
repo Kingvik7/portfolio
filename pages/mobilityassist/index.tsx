@@ -113,7 +113,7 @@ export default function Home(): JSX.Element {
                     </h1>
                     </div>
                     <div className="sm:w-full md:w-1/3">
-                        <Image placeholder="blur" src={stagemanager2} />
+                        <Image alt="Mobility Assist" src={stagemanager2} />
                     </div>
                 </main>
             </div>
@@ -136,7 +136,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame1} />
+                <Image alt="frame1" src={frame1} />
                 <Title text="How it Works" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
                     {callouts2.map((callout) => (
@@ -154,7 +154,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame2} />
+                <Image alt="frame2" src={frame2} />
                 {/* <Title text="Operational Flowchart" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
                 </div> */}
