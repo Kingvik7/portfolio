@@ -118,7 +118,7 @@ export default function Home(): JSX.Element {
                         KitchenMate 
                     </h1>
                     <div className="sm:w-full md:w-2/3">
-                        <Image src={stagemanager2} />
+                        <Image alt="" src={stagemanager2} />
                     </div>
                 </main>
             </div>
@@ -141,7 +141,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame1} />
+                <Image alt="" src={frame1} />
                 <Title text="Conceptual Design" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
                     {callouts2.map((callout) => (
@@ -159,7 +159,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame2} />
+                <Image alt="" src={frame2} />
                 <Title text="Detailed Design" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-1 lg:gap-x-16 lg:gap-y-8">
                     {callouts3.map((callout) => (
@@ -177,7 +177,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame3} />
+                <Image alt="" src={frame3} />
                 <h3 className="text-base mt-20 font-semibold text-gray-900">
                                 <a>
                                     {/* <span className="absolute inset-0" /> */}
@@ -188,7 +188,7 @@ export default function Home(): JSX.Element {
                  <p className="mt-1 text-sm text-gray-500">
                  The Recipe page offers a comprehensive overview of each dish, including a list of ingredients, suggested serving sizes, required equipment, and video tutorials to guide users through each step of the cooking process. Additionally, the app allows users to preview the recipe instructions before beginning to cook, ensuring that they have a clear understanding of the required steps and ingredients.
                 </p>
-                <Image src={frame4} />
+                <Image alt="" src={frame4} />
                 <h3 className="text-base mt-20 font-semibold text-gray-900">
                                 <a>
                                     {/* <span className="absolute inset-0" /> */}
@@ -199,7 +199,7 @@ export default function Home(): JSX.Element {
                  <p className="mt-1 mb-10 text-sm text-gray-500">
                  The Recipe page while cooking provides users with a step-by-step guide to cooking a dish, allowing them to easily follow along with the recipe. By presenting detailed instructions in a clear and concise manner, the app aims to make cooking more accessible and enjoyable for users. This feature is particularly useful for novice cooks or those who want to try new recipes but are unfamiliar with certain cooking techniques. The Recipe Detail page also includes helpful tips and tricks to ensure that users achieve the best results possible.
                 </p>
-                <Image src={frame5} />
+                <Image alt="" src={frame5} />
                 <div className="mt-20"></div>
                 <h3 className="text-base mt-20 font-semibold text-gray-900">
                                 <a>
@@ -211,7 +211,7 @@ export default function Home(): JSX.Element {
                  <p className="mt-1 mb-10 text-sm text-gray-500">
                  The Pantry tab allows users to manage the ingredients they have on hand, with expiring items highlighted for easy identification. This feature is especially useful for minimizing food waste and ensuring that users can make the most of the ingredients they have. Based on the ingredients available, the app suggests recipes that users can prepare using the ingredients in their pantry. In addition, the Pantry tab also allows users to add or shop for more ingredients, making it a convenient tool for meal planning and grocery shopping.
                 </p>
-                <Image src={frame6} />
+                <Image alt="" src={frame6} />
                 <Title text="Prototype" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
                 </div>

@@ -144,7 +144,7 @@ export default function Home(): JSX.Element {
                 >
                     
                     <div className="w-full">
-                        <Image src={stagemanager2} />
+                        <Image alt="" src={stagemanager2} />
                     </div>
                 </main>
             </div>
@@ -179,7 +179,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame1} />
+                <Image alt="" src={frame1} />
                 <Title text="Third Person open world game - Unreal Engine 5 " />
                 <div className="flex flex-row gap-2 mt-6 justify-center">
                             <div className="bg-gray-100 py-1 px-3 rounded-lg text-sm text-gray-500 tag">
@@ -208,7 +208,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame2} />
+                <Image alt="" src={frame2} />
                 <Title text="TourTime - Virtual Tourist Guide" />
                 <div className="flex flex-row gap-2 mt-6 justify-center">
                             <div className="bg-gray-100 py-1 px-3 rounded-lg text-sm text-gray-500 tag">
@@ -237,7 +237,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame3} />
+                <Image alt="" src={frame3} />
                 <Title text="iOS Wallet App" />
                 <div className="flex flex-row gap-2 mt-6 justify-center">
                             <div className="bg-gray-100 py-1 px-3 rounded-lg text-sm text-gray-500 tag">
@@ -263,7 +263,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame4} />
+                <Image alt="" src={frame4} />
                 
             </div>
             <Footer />
