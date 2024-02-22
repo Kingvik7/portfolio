@@ -168,7 +168,7 @@ export default function Home(): JSX.Element {
                         Rethinking Stage Manager on macOS <h1 className="gradient">Ventura</h1>
                     </h1>
                     <div className="sm:w-full md:w-2/3">
-                        <Image src={stagemanager2} />
+                        <Image alt="Stage Manager" src={stagemanager2} />
                     </div>
                 </main>
             </div>
@@ -191,7 +191,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame1} />
+                <Image alt="frame1" src={frame1} />
                 <Title text="Issues Observed in Stage Manager " />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
                     {callouts2.map((callout) => (
@@ -209,7 +209,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame2} />
+                <Image alt="frame2" src={frame2} />
                 <Title text="Redesigning Stage Manager" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
                     {callouts3.map((callout) => (
@@ -227,7 +227,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame3} />
+                <Image alt="frame3" src={frame3} />
                 <Title text="Stage Manager on the Dock" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
                     {callouts4.map((callout) => (
@@ -245,7 +245,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame4} />
+                <Image alt="frame4" src={frame4} />
                 <Title text="Stage Manager in Mission Control" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
                     {callouts5.map((callout) => (
@@ -263,10 +263,10 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame5} />
+                <Image alt="frame5" src={frame5} />
                 <Title text="Split-Screen View" />
                 <div className="mt-0 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-1 lg:gap-x-16 lg:gap-y-8"></div>
-                <Image src={frame6} />
+                <Image alt="frame6" src={frame6} />
                 <Title text="Creating complex Split-Screen Views" />
                 <div className="mt-10 mb-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
                     {callouts6.map((callout) => (
@@ -284,7 +284,7 @@ export default function Home(): JSX.Element {
                         </div>
                     ))}
                 </div>
-                <Image src={frame7} />
+                <Image alt="frame7" src={frame7} />
             </div>
             <Footer />
         </div>
