@@ -56,7 +56,7 @@ export default function NavBar() {
 
                                             className="flex-shrink-0 w-8 h-8 "
                                         >
-                                            <Image src={logo} />
+                                            <Image alt="logo" src={logo} />
                                         </div>
                                         </Link>
                                     </div>

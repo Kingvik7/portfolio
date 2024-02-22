@@ -212,7 +212,7 @@ export default function ThreeScene() {
       </div>
       <div className="flex flex-col  fixed bottom-10 left-28">
         <div className="flex flex-row  justify-center">
-        <Image className="w-20 p-2 " src={nissan}/>
+        <Image alt="nissan" className="w-20 p-2 " src={nissan}/>
         <div className="flex flex-col justify-center text-sm">
           <h3 className="text-gray-600 font-['Sfpro']">Nissan</h3>
           <h3 className="text-gray-600 font-['Sfpro']">Skyline R33</h3>
