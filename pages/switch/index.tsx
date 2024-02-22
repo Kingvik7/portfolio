@@ -203,7 +203,7 @@ export default function ThreeScene() {
     };
   }, [cameraPositionIndex, cameraPositions]);
 
-  return (
+  return ( 
     <div className="bg-white applecontainer">
       <div className=" w-full relative">
         <div className="fade-overlay" ref={fadeRef}></div>
