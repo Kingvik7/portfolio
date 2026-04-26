@@ -5,6 +5,7 @@ import Tag from "./Tag";
 
 export default function Details() {
   const { selectedProject } = useProjectContext();
+  const project = selectedProject != null ? projectsData[selectedProject] : null;
 
   return (
     <Wrapper>
@@ -12,31 +13,31 @@ export default function Details() {
         <Heading>
           <span>
             {" "}
-            {Array.isArray(projectsData[selectedProject]?.filter)
-              ? projectsData[selectedProject].filter.join(" & ")
-              : projectsData[selectedProject]?.filter}{" "}
+            {Array.isArray(project?.filter)
+              ? project.filter.join(" & ")
+              : project?.filter}{" "}
             Work \
           </span>{" "}
           <br />
-          {projectsData[selectedProject]?.name}
+          {project?.name}
         </Heading>
         <VerticalDivider />
         <BottomGroup>
           <div className="title">Stack</div>
           <TagContainer>
-            {projectsData[selectedProject]?.tags?.map((tag) => (
+            {project?.tags?.map((tag: string) => (
               <Tag key={tag} text={tag} />
             ))}
           </TagContainer>
         </BottomGroup>
-        {projectsData[selectedProject]?.buttonCopy && (
+        {project?.buttonCopy && (
           <Button
             download
-            href={projectsData[selectedProject]?.href}
+            href={project?.href}
             target="_blank"
             rel="noreferrer"
           >
-            {projectsData[selectedProject]?.buttonCopy}
+            {project?.buttonCopy}
           </Button>
         )}
       </Top>
@@ -44,9 +45,7 @@ export default function Details() {
       <Divider />
 
       <Bottom>
-        <Description>
-          {projectsData[selectedProject]?.longDescription}
-        </Description>
+        <Description>{project?.longDescription}</Description>
       </Bottom>
     </Wrapper>
   );
@@ -94,13 +93,6 @@ const Top = styled.div`
     align-items: flex-start;
     gap: 0.75rem;
   }
-`;
-
-const TopRight = styled.div`
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  flex-shrink: 0;
 `;
 
 const Heading = styled.div`
@@ -153,21 +145,6 @@ const BottomGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-`;
-
-const HighlightsList = styled.ul`
-  font-size: 0.75rem;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  margin: 0;
-  padding-left: 1.5rem;
-`;
-
-const Highlight = styled.li`
-  color: #ffffff;
-  font-style: italic;
 `;
 
 const Button = styled.a`

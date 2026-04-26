@@ -2,15 +2,27 @@ import styled from "styled-components";
 import { projectsData } from "@data/projectsData";
 import { useProjectContext } from "@contexts/ProjectContext";
 
+type ProjectSection = {
+  heading?: string;
+  blockData?: { name: string; description: string }[];
+  image?: string;
+  imageWidth?: number;
+  imageAlign?: "left" | "right" | "center";
+  centerImage?: boolean;
+  noImageRadius?: boolean;
+  video?: string;
+  videoPoster?: string;
+};
+
 export default function ProjectInfo() {
   const { selectedProject } = useProjectContext();
+  const project = selectedProject != null ? projectsData[selectedProject] : null;
+  const sections = (project as { data?: ProjectSection[] } | null)?.data;
 
   return (
     <ProjectInfoWrapper>
-      {projectsData[selectedProject]?.data?.map((section, index) => {
+      {sections?.map((section: ProjectSection, index: number) => {
         const isEven = index % 2 === 0;
-        const isLast =
-          index === (projectsData[selectedProject]?.data?.length ?? 0) - 1;
 
         return (
           <Section key={index}>
@@ -25,7 +37,7 @@ export default function ProjectInfo() {
 
             {section?.blockData && (
               <ContentArea>
-                {section.blockData.map((block, i) => (
+                {section.blockData.map((block, i: number) => (
                   <TextBlock key={i}>
                     <BlockName>{block.name}</BlockName>
                     <BlockDivider />
