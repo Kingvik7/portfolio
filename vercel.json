@@ -1,20 +1,60 @@
 {
   "rewrites": [
     {
+      "source": "/embed/air-jordan",
+      "destination": "https://air-jordan-orpin.vercel.app"
+    },
+    {
+      "source": "/embed/air-jordan/",
+      "destination": "https://air-jordan-orpin.vercel.app/"
+    },
+    {
       "source": "/embed/air-jordan/:path*",
       "destination": "https://air-jordan-orpin.vercel.app/:path*"
+    },
+    {
+      "source": "/embed/bmw",
+      "destination": "https://bmw-nu-flame.vercel.app"
+    },
+    {
+      "source": "/embed/bmw/",
+      "destination": "https://bmw-nu-flame.vercel.app/"
     },
     {
       "source": "/embed/bmw/:path*",
       "destination": "https://bmw-nu-flame.vercel.app/:path*"
     },
     {
+      "source": "/embed/ml-sharp",
+      "destination": "https://ml-sharp-chi.vercel.app"
+    },
+    {
+      "source": "/embed/ml-sharp/",
+      "destination": "https://ml-sharp-chi.vercel.app/"
+    },
+    {
       "source": "/embed/ml-sharp/:path*",
       "destination": "https://ml-sharp-chi.vercel.app/:path*"
     },
     {
+      "source": "/embed/components",
+      "destination": "https://components-alpha-nine.vercel.app"
+    },
+    {
+      "source": "/embed/components/",
+      "destination": "https://components-alpha-nine.vercel.app/"
+    },
+    {
       "source": "/embed/components/:path*",
       "destination": "https://components-alpha-nine.vercel.app/:path*"
+    },
+    {
+      "source": "/embed/path-tracer",
+      "destination": "https://path-tracer-psi.vercel.app"
+    },
+    {
+      "source": "/embed/path-tracer/",
+      "destination": "https://path-tracer-psi.vercel.app/"
     },
     {
       "source": "/embed/path-tracer/:path*",
