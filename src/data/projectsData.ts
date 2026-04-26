@@ -154,7 +154,7 @@ export const projectsData = [
 		heroSrc: "/projectImages/hero/swift.webp",
 		tags: ["GSplat", "Visualisation"],
 		iframe: true,
-		iframeSrc: "/embed/air-jordan/",
+		iframeSrc: "/embed/air-jordan",
 	},
 	{
 		name: "Interactions",
@@ -165,7 +165,7 @@ export const projectsData = [
 		imageSrc: "/projectImages/thumbnails/components.webp",
 		tags: ["React", "CSS", "framer"],
 		iframe: true,
-		iframeSrc: "/embed/components/",
+		iframeSrc: "/embed/components",
 	},
 	{
 		name: "Rethinking Stage Manager on macOS Ventura",
@@ -316,7 +316,7 @@ export const projectsData = [
 		imageSrc: "/projectImages/thumbnails/bmw.webp",
 		tags: ["GSplat", "Visualisation"],
 		iframe: true,
-		iframeSrc: "/embed/bmw/",
+		iframeSrc: "/embed/bmw",
 	},
 	{
 		name: "ml-sharp",
@@ -328,7 +328,7 @@ export const projectsData = [
 		imageSrc: "/projectImages/thumbnails/sharp.webp",
 		tags: ["GSplat", "Visualisation", "ml-sharp"],
 		iframe: true,
-		iframeSrc: "/embed/ml-sharp/",
+		iframeSrc: "/embed/ml-sharp",
 	},
 	{
 		name: "React / SwiftUI Presentation App",
@@ -491,7 +491,7 @@ export const projectsData = [
 		imageSrc: "/projectImages/thumbnails/pathTracer.webp",
 		tags: ["R3F", "Three.js", "Path Tracing"],
 		iframe: true,
-		iframeSrc: "/embed/path-tracer/",
+		iframeSrc: "/embed/path-tracer",
 	},
 	{
 		name: "KitchenMate",
