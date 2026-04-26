@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { useState, useMemo, useRef, useEffect, useCallback } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import Tag from "./Tag";
 import { useProjectContext } from "@contexts/ProjectContext";
 import { projectsData } from "@data/projectsData";
 import { glass } from "@styles/globalStyles";
-import DebugMenu from "./DebugMenu";
 
 // Each page layout defines its item count and a function to get the card size by index
 const PAGE_LAYOUTS: {
@@ -47,37 +46,13 @@ export default function ProjectsMap() {
   const isPageChange = useRef(false);
   const animateBorder = useRef(true);
   const [selectedFilter, setSelectedFilter] = useState("All");
-  const [projects, setProjects] = useState(projectsData);
+  const [projects] = useState(projectsData);
   const { setProjectState } = useProjectContext();
   const initialLoadRef = useRef(isInitialLoad);
 
   useEffect(() => {
     isInitialLoad = false;
   }, []);
-
-  const handleReorder = useCallback(
-    (reordered: Record<string, unknown>[]) =>
-      setProjects(reordered as typeof projectsData),
-    [],
-  );
-
-  const handleFieldUpdate = useCallback(
-    (index: number, field: string, value: string) => {
-      setProjects((prev) => {
-        const next = [...prev];
-        const parsed =
-          field === "tags"
-            ? value
-                .split(",")
-                .map((t) => t.trim())
-                .filter(Boolean)
-            : value;
-        next[index] = { ...next[index], [field]: parsed };
-        return next;
-      });
-    },
-    [],
-  );
 
   const filters = ["All", "Dev", "Design"];
 
@@ -242,13 +217,14 @@ export default function ProjectsMap() {
                         project.shortName,
                         originalIndex,
                       );
-                      if (project?.custom) {
+                      const p = project as Record<string, unknown>;
+                      if (p?.custom) {
                         setProjectState({
                           customProjectVisible: true,
                           projectVisible: true,
                           selectedProject: originalIndex,
                         });
-                      } else if (project?.three) {
+                      } else if (p?.three) {
                         setProjectState({
                           threeVisible: true,
                           projectVisible: true,

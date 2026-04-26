@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import { DividerVerticalIcon, ChevronLeftIcon } from "@radix-ui/react-icons";
+import { DividerVerticalIcon } from "@radix-ui/react-icons";
 import { useProjectContext } from "@contexts/ProjectContext";
 import { projectsData } from "@data/projectsData";
 import NavList from "./NavList";
 
 export default function Details() {
-  const { selectedProject, setProjectState } = useProjectContext();
+  const { selectedProject } = useProjectContext();
+  const project = selectedProject != null ? projectsData[selectedProject] : null;
   return (
     <div className="details">
-      {projectsData[selectedProject].shortName}
+      {project?.shortName}
       <DividerVerticalIcon
         color="var(--text-color)"
         opacity={0.5}

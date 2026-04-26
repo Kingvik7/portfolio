@@ -12,6 +12,11 @@ function ProjectPage() {
   const { projectVisible, selectedProject, setProjectState } =
     useProjectContext();
 
+  const project =
+    selectedProject != null
+      ? (projectsData[selectedProject] as Record<string, any>)
+      : null;
+
   const [iframeMounted, setIframeMounted] = useState(false);
   const directClose = useRef(false);
 
@@ -63,7 +68,7 @@ function ProjectPage() {
           >
             <Cross1Icon />
           </CloseButton>
-          {projectsData[selectedProject]?.iframe ? (
+          {project?.iframe ? (
             <IframeWrapper
               as={motion.div}
               initial={{ opacity: 0 }}
@@ -72,8 +77,8 @@ function ProjectPage() {
             >
               {iframeMounted && (
                 <iframe
-                  src={projectsData[selectedProject]?.iframeSrc}
-                  title={projectsData[selectedProject]?.name}
+                  src={project?.iframeSrc}
+                  title={project?.name}
                   allow="autoplay; fullscreen; xr-spatial-tracking; accelerometer; gyroscope; clipboard-read; clipboard-write"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
@@ -81,17 +86,20 @@ function ProjectPage() {
             </IframeWrapper>
           ) : (
             <>
-              <Hero color={projectsData[selectedProject]?.color} $hasVideo={!!projectsData[selectedProject]?.heroVideo}>
-                {projectsData[selectedProject]?.heroVideo ? (
+              <Hero
+                color={project?.color}
+                $hasVideo={!!project?.heroVideo}
+              >
+                {project?.heroVideo ? (
                   <Video
-                    src={projectsData[selectedProject]?.heroVideo}
-                    $videoWidth={projectsData[selectedProject]?.heroVideoWidth}
+                    src={project?.heroVideo}
+                    $videoWidth={project?.heroVideoWidth}
                     autoPlay
                     muted
                     playsInline
                   />
                 ) : (
-                  <Image src={projectsData[selectedProject]?.heroSrc} />
+                  <Image src={project?.heroSrc} />
                 )}
                 <Shadow />
               </Hero>

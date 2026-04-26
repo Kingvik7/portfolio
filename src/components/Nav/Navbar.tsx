@@ -32,7 +32,7 @@ export default function Navbar() {
     "entering" | "visible" | "exiting"
   >("visible");
 
-  const { projectVisible, setProjectState } = useProjectContext();
+  const { projectVisible } = useProjectContext();
 
   // Motion blur on pill during project transitions
   const blurProgress = useMotionValue(0);

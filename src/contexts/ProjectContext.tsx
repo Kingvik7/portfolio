@@ -63,7 +63,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
     // Sync URL
     if (update.projectVisible === false) {
       setSearchParams({}, { replace: true });
-    } else if (update.selectedProject != null && update.projectVisible !== false) {
+    } else if (update.selectedProject != null) {
       const shortName = projectsData[update.selectedProject]?.shortName;
       if (shortName) {
         setSearchParams({ project: toSlug(shortName) }, { replace: true });
