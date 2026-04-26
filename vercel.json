@@ -19,6 +19,10 @@
     {
       "source": "/embed/path-tracer/:path*",
       "destination": "https://path-tracer-psi.vercel.app/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
     }
   ]
 }
