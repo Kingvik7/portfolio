@@ -1,304 +1,304 @@
-import styled from "styled-components";
-import { useState, useMemo, useRef, useEffect } from "react";
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
-import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
-import Tag from "./Tag";
 import { useProjectContext } from "@contexts/ProjectContext";
 import { projectsData } from "@data/projectsData";
+import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { glass } from "@styles/globalStyles";
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
+import { useEffect, useMemo, useRef, useState } from "react";
+import styled from "styled-components";
+import Tag from "./Tag";
 
 // Each page layout defines its item count and a function to get the card size by index
 const PAGE_LAYOUTS: {
-  size: number;
-  getSize: (i: number) => "featured" | "wide" | "standard";
+	size: number;
+	getSize: (i: number) => "featured" | "wide" | "standard";
 }[] = [
-  // Page 0: featured (2x2) + 2 standard
-  { size: 3, getSize: (i) => (i === 0 ? "featured" : "standard") },
-  // Page 1: row 1 = wide + standard, row 2 = 3 standard
-  { size: 5, getSize: (i) => (i === 0 ? "wide" : "standard") },
-  // Page 2: row 1 = standard + wide, row 2 = wide + standard
-  { size: 4, getSize: (i) => (i === 1 || i === 2 ? "wide" : "standard") },
+	// Page 0: featured (2x2) + 2 standard
+	{ size: 3, getSize: (i) => (i === 0 ? "featured" : "standard") },
+	// Page 1: row 1 = wide + standard, row 2 = 3 standard
+	{ size: 5, getSize: (i) => (i === 0 ? "wide" : "standard") },
+	// Page 2: row 1 = standard + wide, row 2 = wide + standard
+	{ size: 4, getSize: (i) => (i === 1 || i === 2 ? "wide" : "standard") },
 ];
 
 // Fallback for any pages beyond the defined layouts
 const FALLBACK_LAYOUT = { size: 6, getSize: () => "standard" as const };
 
 function useIsMobile(breakpoint = 767) {
-  const [isMobile, setIsMobile] = useState(
-    () => window.innerWidth <= breakpoint,
-  );
-  useEffect(() => {
-    const mq = window.matchMedia(`(max-width: ${breakpoint}px)`);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, [breakpoint]);
-  return isMobile;
+	const [isMobile, setIsMobile] = useState(
+		() => window.innerWidth <= breakpoint,
+	);
+	useEffect(() => {
+		const mq = window.matchMedia(`(max-width: ${breakpoint}px)`);
+		const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+		mq.addEventListener("change", handler);
+		return () => mq.removeEventListener("change", handler);
+	}, [breakpoint]);
+	return isMobile;
 }
 
 let isInitialLoad = true;
 
 export default function ProjectsMap() {
-  const isMobile = useIsMobile();
-  const [currentPage, setCurrentPage] = useState(0);
-  const directionRef = useRef(1);
-  const isFilterChange = useRef(false);
-  const isPageChange = useRef(false);
-  const animateBorder = useRef(true);
-  const [selectedFilter, setSelectedFilter] = useState("All");
-  const [projects] = useState(projectsData);
-  const { setProjectState } = useProjectContext();
-  const initialLoadRef = useRef(isInitialLoad);
+	const isMobile = useIsMobile();
+	const [currentPage, setCurrentPage] = useState(0);
+	const directionRef = useRef(1);
+	const isFilterChange = useRef(false);
+	const isPageChange = useRef(false);
+	const animateBorder = useRef(true);
+	const [selectedFilter, setSelectedFilter] = useState("All");
+	const [projects] = useState(projectsData);
+	const { setProjectState } = useProjectContext();
+	const initialLoadRef = useRef(isInitialLoad);
 
-  useEffect(() => {
-    isInitialLoad = false;
-  }, []);
+	useEffect(() => {
+		isInitialLoad = false;
+	}, []);
 
-  const filters = ["All", "Dev", "Design"];
+	const filters = ["All", "Dev", "Design"];
 
-  const filtered = useMemo(
-    () =>
-      projects.filter(
-        (project) =>
-          selectedFilter === "All" ||
-          (Array.isArray(project.filter)
-            ? project.filter.includes(selectedFilter)
-            : project.filter === selectedFilter),
-      ),
-    [selectedFilter, projects],
-  );
+	const filtered = useMemo(
+		() =>
+			projects.filter(
+				(project) =>
+					selectedFilter === "All" ||
+					(Array.isArray(project.filter)
+						? project.filter.includes(selectedFilter)
+						: project.filter === selectedFilter),
+			),
+		[selectedFilter, projects],
+	);
 
-  // Build page boundaries from layouts
-  const { totalPages, pageStart, pageEnd, layout } = useMemo(() => {
-    if (isMobile) {
-      const p = Math.max(filtered.length, 1);
-      const s = Math.min(currentPage, filtered.length - 1);
-      return {
-        totalPages: p,
-        pageStart: s,
-        pageEnd: s + 1,
-        layout: { size: 1, getSize: () => "standard" as const },
-      };
-    }
+	// Build page boundaries from layouts
+	const { totalPages, pageStart, pageEnd, layout } = useMemo(() => {
+		if (isMobile) {
+			const p = Math.max(filtered.length, 1);
+			const s = Math.min(currentPage, filtered.length - 1);
+			return {
+				totalPages: p,
+				pageStart: s,
+				pageEnd: s + 1,
+				layout: { size: 1, getSize: () => "standard" as const },
+			};
+		}
 
-    let remaining = filtered.length;
-    let pages = 0;
-    let start = 0;
-    const starts: number[] = [];
+		let remaining = filtered.length;
+		let pages = 0;
+		let start = 0;
+		const starts: number[] = [];
 
-    while (remaining > 0) {
-      const l =
-        pages < PAGE_LAYOUTS.length ? PAGE_LAYOUTS[pages] : FALLBACK_LAYOUT;
-      starts.push(start);
-      const count = Math.min(l.size, remaining);
-      start += count;
-      remaining -= count;
-      pages++;
-    }
+		while (remaining > 0) {
+			const l =
+				pages < PAGE_LAYOUTS.length ? PAGE_LAYOUTS[pages] : FALLBACK_LAYOUT;
+			starts.push(start);
+			const count = Math.min(l.size, remaining);
+			start += count;
+			remaining -= count;
+			pages++;
+		}
 
-    const p = Math.max(pages, 1);
-    const s = starts[currentPage] ?? 0;
-    const currentLayout =
-      currentPage < PAGE_LAYOUTS.length
-        ? PAGE_LAYOUTS[currentPage]
-        : FALLBACK_LAYOUT;
-    const e = s + Math.min(currentLayout.size, filtered.length - s);
+		const p = Math.max(pages, 1);
+		const s = starts[currentPage] ?? 0;
+		const currentLayout =
+			currentPage < PAGE_LAYOUTS.length
+				? PAGE_LAYOUTS[currentPage]
+				: FALLBACK_LAYOUT;
+		const e = s + Math.min(currentLayout.size, filtered.length - s);
 
-    return { totalPages: p, pageStart: s, pageEnd: e, layout: currentLayout };
-  }, [filtered, currentPage, isMobile]);
+		return { totalPages: p, pageStart: s, pageEnd: e, layout: currentLayout };
+	}, [filtered, currentPage, isMobile]);
 
-  const pageItems = filtered.slice(pageStart, pageEnd);
+	const pageItems = filtered.slice(pageStart, pageEnd);
 
-  const goToPage = (page: number) => {
-    isFilterChange.current = false;
-    isPageChange.current = true;
-    animateBorder.current = false;
-    directionRef.current = page > currentPage ? 1 : -1;
-    setCurrentPage(page);
-  };
+	const goToPage = (page: number) => {
+		isFilterChange.current = false;
+		isPageChange.current = true;
+		animateBorder.current = false;
+		directionRef.current = page > currentPage ? 1 : -1;
+		setCurrentPage(page);
+	};
 
-  // Reset page when filter changes
-  const handleFilter = (filter: string) => {
-    isFilterChange.current = true;
-    isPageChange.current = false;
-    animateBorder.current = true;
-    setCurrentPage(0);
-    setSelectedFilter(filter);
-  };
+	// Reset page when filter changes
+	const handleFilter = (filter: string) => {
+		isFilterChange.current = true;
+		isPageChange.current = false;
+		animateBorder.current = true;
+		setCurrentPage(0);
+		setSelectedFilter(filter);
+	};
 
-  return (
-    <>
-      <ProjectsWrapper
-        initial={initialLoadRef.current ? { scale: 0.97 } : false}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-      >
-        <Controls>
-          <div className="left">
-            <Title>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={selectedFilter}
-                  initial={{ opacity: 0, y: 5, filter: "blur(4px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -5, filter: "blur(4px)" }}
-                  transition={{ duration: 0.25, ease: "easeInOut" }}
-                >
-                  {selectedFilter}
-                </motion.span>
-              </AnimatePresence>
-            </Title>
-            <Divider />
-          </div>
-          <Filters>
-            <LayoutGroup>
-              {filters.map((filter, index) => (
-                <div
-                  className={`filter ${selectedFilter === filter ? "active" : ""}`}
-                  onClick={() => handleFilter(filter)}
-                  key={index}
-                >
-                  {selectedFilter === filter && (
-                    <motion.div
-                      className="filter-pill"
-                      layoutId="filter-pill"
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 30,
-                      }}
-                    />
-                  )}
-                  <span className="filter-label">{filter}</span>
-                </div>
-              ))}
-            </LayoutGroup>
-          </Filters>
-        </Controls>
-        <GridContainer>
-          <AnimatePresence
-            mode="wait"
-            initial={false}
-            custom={directionRef.current}
-          >
-            <ProjectGrid
-              key={`${selectedFilter}-${currentPage}`}
-              custom={directionRef.current}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              variants={{
-                enter: (d: number) =>
-                  isPageChange.current
-                    ? { opacity: 0, x: 20 * d, filter: "blur(6px)" }
-                    : { opacity: 0, scale: 0.99, filter: "blur(6px)" },
-                center: { opacity: 1, x: 0, scale: 1, filter: "blur(0px)" },
-                exit: (d: number) =>
-                  isPageChange.current
-                    ? { opacity: 0, x: -20 * d, filter: "blur(6px)" }
-                    : { opacity: 0, scale: 0.98, filter: "blur(6px)" },
-              }}
-              transition={{ duration: 0.25, ease: "easeInOut" }}
-            >
-              {pageItems.map((project, i) => {
-                const originalIndex = projects.findIndex(
-                  (p) => p.name === project.name,
-                );
-                const size = layout.getSize(i);
-                return (
-                  <ProjectCard
-                    key={project.name}
-                    $size={size}
-                    $animateBorder={animateBorder.current}
-                    $initialLoad={initialLoadRef.current}
-                    onClick={() => {
-                      console.log(
-                        "card clicked:",
-                        project.shortName,
-                        originalIndex,
-                      );
-                      const p = project as Record<string, unknown>;
-                      if (p?.custom) {
-                        setProjectState({
-                          customProjectVisible: true,
-                          projectVisible: true,
-                          selectedProject: originalIndex,
-                        });
-                      } else if (p?.three) {
-                        setProjectState({
-                          threeVisible: true,
-                          projectVisible: true,
-                          selectedProject: originalIndex,
-                        });
-                      } else {
-                        if (
-                          project.shortName === "Usability" ||
-                          project.shortName === "Cerebranium"
-                        ) {
-                          window.open(project.href, "_blank");
-                        } else {
-                          setProjectState({
-                            projectVisible: true,
-                            selectedProject: originalIndex,
-                          });
-                        }
-                      }
-                    }}
-                  >
-                    <img
-                      alt={project.name}
-                      src={project.imageSrc}
-                      className="project-image"
-                    />
-                    <CardOverlay className="card-overlay">
-                      <ProjectTitle>{project.name}</ProjectTitle>
-                      <TagContainer>
-                        {project.tags?.map((tag) => (
-                          <Tag key={tag} text={tag} />
-                        ))}
-                      </TagContainer>
-                    </CardOverlay>
-                  </ProjectCard>
-                );
-              })}
-            </ProjectGrid>
-          </AnimatePresence>
-        </GridContainer>
-        <Dots>
-          <DotGroup>
-            {Array.from({ length: totalPages }).map((_, i) => (
-              <Dot
-                key={i}
-                $active={i === currentPage}
-                onClick={() => goToPage(i)}
-              />
-            ))}
-          </DotGroup>
-          <ArrowButtons>
-            <ArrowButton
-              onClick={() => goToPage(Math.max(0, currentPage - 1))}
-              $disabled={currentPage === 0}
-            >
-              <ChevronLeftIcon />
-            </ArrowButton>
-            <ArrowButton
-              onClick={() =>
-                goToPage(Math.min(totalPages - 1, currentPage + 1))
-              }
-              $disabled={currentPage === totalPages - 1}
-            >
-              <ChevronRightIcon />
-            </ArrowButton>
-          </ArrowButtons>
-        </Dots>
-      </ProjectsWrapper>
-      {/* <DebugMenu
+	return (
+		<>
+			<ProjectsWrapper
+				initial={initialLoadRef.current ? { scale: 0.97 } : false}
+				animate={{ scale: 1 }}
+				transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+			>
+				<Controls>
+					<div className="left">
+						<Title>
+							<AnimatePresence mode="wait">
+								<motion.span
+									key={selectedFilter}
+									initial={{ opacity: 0, y: 5, filter: "blur(4px)" }}
+									animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+									exit={{ opacity: 0, y: -5, filter: "blur(4px)" }}
+									transition={{ duration: 0.25, ease: "easeInOut" }}
+								>
+									{selectedFilter}
+								</motion.span>
+							</AnimatePresence>
+						</Title>
+						<Divider />
+					</div>
+					<Filters>
+						<LayoutGroup>
+							{filters.map((filter, index) => (
+								<div
+									className={`filter ${selectedFilter === filter ? "active" : ""}`}
+									onClick={() => handleFilter(filter)}
+									key={index}
+								>
+									{selectedFilter === filter && (
+										<motion.div
+											className="filter-pill"
+											layoutId="filter-pill"
+											transition={{
+												type: "spring",
+												stiffness: 400,
+												damping: 30,
+											}}
+										/>
+									)}
+									<span className="filter-label">{filter}</span>
+								</div>
+							))}
+						</LayoutGroup>
+					</Filters>
+				</Controls>
+				<GridContainer>
+					<AnimatePresence
+						mode="wait"
+						initial={false}
+						custom={directionRef.current}
+					>
+						<ProjectGrid
+							key={`${selectedFilter}-${currentPage}`}
+							custom={directionRef.current}
+							initial="enter"
+							animate="center"
+							exit="exit"
+							variants={{
+								enter: (d: number) =>
+									isPageChange.current
+										? { opacity: 0, x: 20 * d, filter: "blur(6px)" }
+										: { opacity: 0, scale: 0.99, filter: "blur(6px)" },
+								center: { opacity: 1, x: 0, scale: 1, filter: "blur(0px)" },
+								exit: (d: number) =>
+									isPageChange.current
+										? { opacity: 0, x: -20 * d, filter: "blur(6px)" }
+										: { opacity: 0, scale: 0.98, filter: "blur(6px)" },
+							}}
+							transition={{ duration: 0.25, ease: "easeInOut" }}
+						>
+							{pageItems.map((project, i) => {
+								const originalIndex = projects.findIndex(
+									(p) => p.name === project.name,
+								);
+								const size = layout.getSize(i);
+								return (
+									<ProjectCard
+										key={project.name}
+										$size={size}
+										$animateBorder={animateBorder.current}
+										$initialLoad={initialLoadRef.current}
+										onClick={() => {
+											console.log(
+												"card clicked:",
+												project.shortName,
+												originalIndex,
+											);
+											const p = project as Record<string, unknown>;
+											if (p?.custom) {
+												setProjectState({
+													customProjectVisible: true,
+													projectVisible: true,
+													selectedProject: originalIndex,
+												});
+											} else if (p?.three) {
+												setProjectState({
+													threeVisible: true,
+													projectVisible: true,
+													selectedProject: originalIndex,
+												});
+											} else {
+												if (
+													project.shortName === "Usability" ||
+													project.shortName === "Cerebranium"
+												) {
+													window.open(project.href, "_blank");
+												} else {
+													setProjectState({
+														projectVisible: true,
+														selectedProject: originalIndex,
+													});
+												}
+											}
+										}}
+									>
+										<img
+											alt={project.name}
+											src={project.imageSrc}
+											className="project-image"
+										/>
+										<CardOverlay className="card-overlay">
+											<ProjectTitle>{project.name}</ProjectTitle>
+											<TagContainer>
+												{project.tags?.map((tag) => (
+													<Tag key={tag} text={tag} />
+												))}
+											</TagContainer>
+										</CardOverlay>
+									</ProjectCard>
+								);
+							})}
+						</ProjectGrid>
+					</AnimatePresence>
+				</GridContainer>
+				<Dots>
+					<DotGroup>
+						{Array.from({ length: totalPages }).map((_, i) => (
+							<Dot
+								key={i}
+								$active={i === currentPage}
+								onClick={() => goToPage(i)}
+							/>
+						))}
+					</DotGroup>
+					<ArrowButtons>
+						<ArrowButton
+							onClick={() => goToPage(Math.max(0, currentPage - 1))}
+							$disabled={currentPage === 0}
+						>
+							<ChevronLeftIcon />
+						</ArrowButton>
+						<ArrowButton
+							onClick={() =>
+								goToPage(Math.min(totalPages - 1, currentPage + 1))
+							}
+							$disabled={currentPage === totalPages - 1}
+						>
+							<ChevronRightIcon />
+						</ArrowButton>
+					</ArrowButtons>
+				</Dots>
+			</ProjectsWrapper>
+			{/* <DebugMenu
         projects={projects as Record<string, unknown>[]}
         onReorder={handleReorder}
         onUpdate={handleFieldUpdate}
       /> */}
-    </>
-  );
+		</>
+	);
 }
 
 const ProjectsWrapper = styled(motion.div)`
@@ -361,9 +361,9 @@ const ProjectGrid = styled(motion.div)`
 `;
 
 const ProjectCard = styled.div<{
-  $size: "featured" | "standard" | "wide";
-  $animateBorder: boolean;
-  $initialLoad: boolean;
+	$size: "featured" | "standard" | "wide";
+	$animateBorder: boolean;
+	$initialLoad: boolean;
 }>`
   position: relative;
   cursor: pointer;
@@ -372,7 +372,7 @@ const ProjectCard = styled.div<{
 
   grid-row: ${({ $size }) => ($size === "featured" ? "span 2" : "span 1")};
   grid-column: ${({ $size }) =>
-    $size === "featured" || $size === "wide" ? "span 2" : "span 1"};
+		$size === "featured" || $size === "wide" ? "span 2" : "span 1"};
 
   @media (max-width: 767px) {
     grid-row: span 1;
@@ -390,8 +390,8 @@ const ProjectCard = styled.div<{
   backdrop-filter: blur(10px);
   --border-angle: 135deg;
   ${({ $animateBorder, $initialLoad }) =>
-    $animateBorder &&
-    `animation: borderRotate 0.6s ease-in-out ${$initialLoad ? "0.6s" : "0.3s"} forwards; --border-angle: 45deg;`}
+		$animateBorder &&
+		`animation: borderRotate 0.6s ease-in-out ${$initialLoad ? "0.6s" : "0.3s"} forwards; --border-angle: 45deg;`}
 
   @keyframes borderRotate {
     from {
@@ -492,12 +492,12 @@ const ArrowButton = styled.div<{ $disabled: boolean }>`
   ${glass}
   cursor: ${({ $disabled }) => ($disabled ? "default" : "pointer")};
   color: ${({ $disabled }) =>
-    $disabled ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0.7)"};
+		$disabled ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0.7)"};
   transition: all 0.25s ease;
 
   &:hover {
     color: ${({ $disabled }) =>
-      $disabled ? "rgba(255, 255, 255, 0.15)" : "#ffffff"};
+			$disabled ? "rgba(255, 255, 255, 0.15)" : "#ffffff"};
   }
 
   &:active {
@@ -510,7 +510,7 @@ const Dot = styled.div<{ $active: boolean }>`
   height: 5px;
   border-radius: 1rem;
   background-color: ${({ $active }) =>
-    $active ? "#ffffff" : "rgba(255, 255, 255, 0.25)"};
+		$active ? "#ffffff" : "rgba(255, 255, 255, 0.25)"};
   cursor: pointer;
   transition: all 0.3s ease;
 
@@ -574,6 +574,7 @@ const Filters = styled.div`
 
   .filter-label {
     position: relative;
+    font-weight: 800;
     z-index: 1;
   }
 `;

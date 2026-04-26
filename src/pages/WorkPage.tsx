@@ -29,6 +29,6 @@ const WorkPageWrapper = styled(motion.div)`
   overflow: scroll;
   background-color: transparent;
   color: var(--text-color);
-  font-family: bold;
+  font-family: "sfpro", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 2rem;
 `;

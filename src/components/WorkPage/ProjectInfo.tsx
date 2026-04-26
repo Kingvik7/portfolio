@@ -1,81 +1,82 @@
-import styled from "styled-components";
-import { projectsData } from "@data/projectsData";
 import { useProjectContext } from "@contexts/ProjectContext";
+import { projectsData } from "@data/projectsData";
+import styled from "styled-components";
 
 type ProjectSection = {
-  heading?: string;
-  blockData?: { name: string; description: string }[];
-  image?: string;
-  imageWidth?: number;
-  imageAlign?: "left" | "right" | "center";
-  centerImage?: boolean;
-  noImageRadius?: boolean;
-  video?: string;
-  videoPoster?: string;
+	heading?: string;
+	blockData?: { name: string; description: string }[];
+	image?: string;
+	imageWidth?: number;
+	imageAlign?: "left" | "right" | "center";
+	centerImage?: boolean;
+	noImageRadius?: boolean;
+	video?: string;
+	videoPoster?: string;
 };
 
 export default function ProjectInfo() {
-  const { selectedProject } = useProjectContext();
-  const project = selectedProject != null ? projectsData[selectedProject] : null;
-  const sections = (project as { data?: ProjectSection[] } | null)?.data;
+	const { selectedProject } = useProjectContext();
+	const project =
+		selectedProject != null ? projectsData[selectedProject] : null;
+	const sections = (project as { data?: ProjectSection[] } | null)?.data;
 
-  return (
-    <ProjectInfoWrapper>
-      {sections?.map((section: ProjectSection, index: number) => {
-        const isEven = index % 2 === 0;
+	return (
+		<ProjectInfoWrapper>
+			{sections?.map((section: ProjectSection, index: number) => {
+				const isEven = index % 2 === 0;
 
-        return (
-          <Section key={index}>
-            {section.heading && (
-              <SectionHeader $align={isEven ? "left" : "right"}>
-                <SectionNumber $align={isEven ? "left" : "right"}>
-                  0{index + 1}
-                </SectionNumber>
-                <Title>{section.heading}</Title>
-              </SectionHeader>
-            )}
+				return (
+					<Section key={index}>
+						{section.heading && (
+							<SectionHeader $align={isEven ? "left" : "right"}>
+								<SectionNumber $align={isEven ? "left" : "right"}>
+									0{index + 1}
+								</SectionNumber>
+								<Title>{section.heading}</Title>
+							</SectionHeader>
+						)}
 
-            {section?.blockData && (
-              <ContentArea>
-                {section.blockData.map((block, i: number) => (
-                  <TextBlock key={i}>
-                    <BlockName>{block.name}</BlockName>
-                    <BlockDivider />
-                    <BlockDescription>{block.description}</BlockDescription>
-                  </TextBlock>
-                ))}
-              </ContentArea>
-            )}
+						{section?.blockData && (
+							<ContentArea>
+								{section.blockData.map((block, i: number) => (
+									<TextBlock key={i}>
+										<BlockName>{block.name}</BlockName>
+										<BlockDivider />
+										<BlockDescription>{block.description}</BlockDescription>
+									</TextBlock>
+								))}
+							</ContentArea>
+						)}
 
-            {(section.image || section.video) && (
-              <ImageWrapper
-                $width={section.video ? 100 : section.imageWidth}
-                $align={
-                  section.centerImage
-                    ? "center"
-                    : section.imageAlign || (isEven ? "right" : "left")
-                }
-                $noRadius={section.noImageRadius}
-              >
-                {section.video ? (
-                  <video
-                    loop
-                    muted
-                    playsInline
-                    controls
-                    src={section.video}
-                    poster={section.videoPoster}
-                  />
-                ) : (
-                  <img alt="Image" src={section.image} />
-                )}
-              </ImageWrapper>
-            )}
-          </Section>
-        );
-      })}
-    </ProjectInfoWrapper>
-  );
+						{(section.image || section.video) && (
+							<ImageWrapper
+								$width={section.video ? 100 : section.imageWidth}
+								$align={
+									section.centerImage
+										? "center"
+										: section.imageAlign || (isEven ? "right" : "left")
+								}
+								$noRadius={section.noImageRadius}
+							>
+								{section.video ? (
+									<video
+										loop
+										muted
+										playsInline
+										controls
+										src={section.video}
+										poster={section.videoPoster}
+									/>
+								) : (
+									<img alt="Image" src={section.image} />
+								)}
+							</ImageWrapper>
+						)}
+					</Section>
+				);
+			})}
+		</ProjectInfoWrapper>
+	);
 }
 
 const ProjectInfoWrapper = styled.div`
@@ -124,7 +125,7 @@ const SectionHeader = styled.div<{ $align: "left" | "right" }>`
   display: flex;
   flex-direction: column;
   align-self: ${({ $align }) =>
-    $align === "right" ? "flex-end" : "flex-start"};
+		$align === "right" ? "flex-end" : "flex-start"};
 
   @media (max-width: 767px) {
     align-self: flex-start;
@@ -140,7 +141,7 @@ const SectionNumber = styled.div<{ $align: "left" | "right" }>`
     -apple-system,
     sans-serif;
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 800;
   color: rgba(255, 255, 255, 0.25);
   letter-spacing: 0;
 
@@ -211,17 +212,17 @@ const BlockDescription = styled.div`
 `;
 
 const ImageWrapper = styled.div<{
-  $width?: number;
-  $align: "left" | "right" | "center";
-  $noRadius?: boolean;
+	$width?: number;
+	$align: "left" | "right" | "center";
+	$noRadius?: boolean;
 }>`
   width: ${({ $width }) => ($width ? `${$width}%` : "85%")};
   align-self: ${({ $align }) =>
-    $align === "center"
-      ? "center"
-      : $align === "right"
-        ? "flex-end"
-        : "flex-start"};
+		$align === "center"
+			? "center"
+			: $align === "right"
+				? "flex-end"
+				: "flex-start"};
   border-radius: ${({ $noRadius }) => ($noRadius ? "0" : "0.75rem")};
   overflow: hidden;
 
