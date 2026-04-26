@@ -1,0 +1,39 @@
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 45deg;
+  inherits: false;
+}
+
+@font-face {
+  font-family: "sfpro";
+  src: url("/fonts/SF-Pro-Display-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --text-color: #ffffffcf;
+  --bg-color: #535353;
+
+  font-family: "system-ui";
+  line-height: 1.5;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+}
